@@ -1,0 +1,48 @@
+[gd_scene load_steps=7 format=3 uid="uid://cm0ult4wy7j6m"]
+
+[ext_resource type="Script" path="res://2nd Assignment _ Run From Player/scripts/ai_nav_agent_chaser.gd" id="1_d08dt"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sddo1"]
+albedo_color = Color(1, 0.35, 0.35, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_6r60u"]
+material = SubResource("StandardMaterial3D_sddo1")
+radius = 0.057
+height = 0.3
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_442t8"]
+albedo_color = Color(0.52, 0.912, 1, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_sdr11"]
+material = SubResource("StandardMaterial3D_442t8")
+radius = 0.01
+height = 0.064
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_laon5"]
+radius = 0.0604206
+height = 0.275954
+
+[node name="AINavAgent_Chaser" type="CharacterBody3D"]
+script = ExtResource("1_d08dt")
+target_character = NodePath("../AINavAgent_Runner")
+
+[node name="CapsuleBody" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.14783, 0)
+mesh = SubResource("CapsuleMesh_6r60u")
+
+[node name="Eye" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, -4.37114e-08, 0, -4.37114e-08, -1, -1, -4.37114e-08, 1.91069e-15, 0, 0.228, 0.0543795)
+mesh = SubResource("CapsuleMesh_sdr11")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.144918, 0)
+shape = SubResource("CapsuleShape3D_laon5")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[node name="UpdateNavtargetTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="UpdateNavtargetTimer" to="." method="_on_update_navtarget_timer_timeout"]
