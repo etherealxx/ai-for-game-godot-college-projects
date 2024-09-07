@@ -1,0 +1,4 @@
+[gd_scene format=3 uid="uid://ce6a8y47hvsl1"]
+
+[node name="SceneSelectButton" type="Button"]
+text = "1st"

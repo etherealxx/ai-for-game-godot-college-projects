@@ -45,12 +45,15 @@ func _physics_process(delta):
 
 func _on_check_chaser_timer_timeout() -> void:
 	var bodies : Array = $Area3D.get_overlapping_bodies()
+	move_away = false
 	if not bodies.is_empty():
 		for body in bodies:
-			if body == get_node(chaser_character):
+			#if body == get_node(chaser_character):
+			if body.is_in_group("chaser"):
 				target_character_position = get_node(chaser_character).get_global_position()
 				set_movement_target(target_character_position - self.global_position)
 				move_away = true
+				#print(self.name + " still being chased")
 				break
-	else:
-		move_away = false
+	#else:
+		#move_away = false

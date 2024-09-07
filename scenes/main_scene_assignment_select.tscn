@@ -1,0 +1,66 @@
+[gd_scene load_steps=3 format=3 uid="uid://wu68tdylfgqv"]
+
+[ext_resource type="Script" path="res://scripts/assignment_select.gd" id="1_86l12"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dtelt"]
+font_size = 36
+
+[node name="AssignmentSelect" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_86l12")
+choosable_scenes_paths = Array[String](["res://1st Assignment _ Simple AI/1_st_assignment.tscn", "res://2nd Assignment _ Run From Player/2_nd_assignment.tscn"])
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.281187, 0.281187, 0.281187, 1)
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -192.0
+offset_top = -155.0
+offset_right = 192.0
+offset_bottom = -105.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Choose the Assignment"
+label_settings = SubResource("LabelSettings_dtelt")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -202.0
+offset_top = -101.0
+offset_right = 202.0
+offset_bottom = 101.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ButtonCont" type="VBoxContainer" parent="ScrollContainer/PanelContainer"]
+unique_name_in_owner = true
+layout_mode = 2

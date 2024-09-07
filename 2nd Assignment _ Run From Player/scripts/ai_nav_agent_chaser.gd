@@ -58,5 +58,26 @@ func _on_update_navtarget_timer_timeout() -> void:
 	if target_character:
 		target_character_position = get_node(target_character).get_global_position()
 		set_movement_target(target_character_position)
-		print(str(target_character_position))
-		
+		#print(str(get_distance_to(get_node(target_character))))
+		#print(str(target_character_position))
+
+func get_distance_to(body : Node) -> float:
+	return self.global_position.distance_to(body.global_position)
+
+func _on_target_locking_timer_timeout() -> void:
+	print("detecting new target")
+	var bodies : Array = $Area3D.get_overlapping_bodies()
+	var closest_body : Node
+	if not bodies.is_empty():
+		for body : Node in bodies:
+			if body.is_in_group("runner") and body != get_node(target_character):
+				#Vector3.distance_to()
+				if closest_body:
+					if get_distance_to(body) < get_distance_to(closest_body): # the newly detected body is closer
+						closest_body = body
+				else:
+					closest_body = body
+		if closest_body and get_distance_to(closest_body) < 0.7: # maximum distance for switching
+			target_character = closest_body.get_path()
+			print("target switched")
+	$TargetLockingTimer.start(randf_range(4.5, 7.0))

@@ -22,12 +22,11 @@ height = 0.064
 radius = 0.0604206
 height = 0.275954
 
-[sub_resource type="SphereShape3D" id="SphereShape3D_sgapa"]
-radius = 1.545
+[sub_resource type="SphereShape3D" id="SphereShape3D_0uvdy"]
+radius = 1.81356
 
-[node name="AINavAgent_Chaser" type="CharacterBody3D"]
+[node name="AINavAgent_Chaser" type="CharacterBody3D" groups=["chaser"]]
 script = ExtResource("1_d08dt")
-target_character = NodePath("../AINavAgent_Runner")
 
 [node name="CapsuleBody" type="MeshInstance3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.14783, 0)
@@ -48,10 +47,17 @@ process_callback = 0
 wait_time = 0.5
 autostart = true
 
+[node name="TargetLockingTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 5.0
+one_shot = true
+autostart = true
+
 [node name="Area3D" type="Area3D" parent="."]
 collision_layer = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
-shape = SubResource("SphereShape3D_sgapa")
+shape = SubResource("SphereShape3D_0uvdy")
 
 [connection signal="timeout" from="UpdateNavtargetTimer" to="." method="_on_update_navtarget_timer_timeout"]
+[connection signal="timeout" from="TargetLockingTimer" to="." method="_on_target_locking_timer_timeout"]
