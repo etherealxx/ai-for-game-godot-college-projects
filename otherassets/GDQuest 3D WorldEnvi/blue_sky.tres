@@ -1,0 +1,6 @@
+[gd_resource type="Sky" load_steps=2 format=3 uid="uid://dyiivs73is4b6"]
+
+[ext_resource type="Material" uid="uid://b4a1poy0vp624" path="res://otherassets/GDQuest 3D WorldEnvi/gdquest_3d_tpc_sky_shadermat.tres" id="1_iigop"]
+
+[resource]
+sky_material = ExtResource("1_iigop")

@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://cmvvu6ki0eh20"]
+
+[ext_resource type="Script" path="res://scripts/scene_title.gd" id="1_6qcw2"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_oor2e"]
+font_size = 20
+
+[node name="SceneTitle" type="CanvasLayer"]
+script = ExtResource("1_6qcw2")
+label_text = "Xth (xth) Assignment : Title"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Label" type="Label" parent="Control"]
+unique_name_in_owner = true
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+text = "First (1st) Assignment : SimpleAI"
+label_settings = SubResource("LabelSettings_oor2e")

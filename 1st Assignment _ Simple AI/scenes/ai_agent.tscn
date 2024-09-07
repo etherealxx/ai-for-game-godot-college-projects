@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=4 uid="uid://lvtr0fo0xfmt"]
+
+[ext_resource type="Script" path="res://1st Assignment _ Simple AI/scripts/ai_agent_1.gd" id="1_gyaf3"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_my5tw"]
+albedo_color = Color(1, 0.37, 0.37, 1)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_ttnf6"]
+_surfaces = [{
+"aabb": AABB(-0.0880127, -0.0184326, -0.0372314, 0.176025, 0.0368652, 0.0744629),
+"attribute_data": PackedByteArray("Xlns/wAAAAAAAAAA/2Zp/15Z7P8AAAAAAACAP/9maf//Zmn/AACAPwAAgD//Zmn//2Zp/wAAgD8AAIA//2Zp//9maf8AAIA/AAAAAP9maf9eWez/AAAAAAAAAAD/Zmn/Xlns/wAAAAAAAAAA/2Zp/15Z7P8AAAAAAACAP/9maf9eWez/AACAPwAAgD//Zmn/Xlns/wAAgD8AAIA//2Zp/15Z7P8AAIA/AAAAAP9maf9eWez/AAAAAAAAAAD/Zmn/Xlns/wAAAAAAAAAA/2Zp//9maf8AAAAAAACAP/9maf//Zmn/AACAPwAAgD//Zmn//2Zp/wAAgD8AAIA//2Zp/15Z7P8AAIA/AAAAAP9maf9eWez/AAAAAAAAAAD/Zmn/Xlns/wAAAAAAAAAA/2Zp/15Z7P8AAAAAAACAP/9maf//Zmn/AACAPwAAgD//Zmn//2Zp/wAAgD8AAIA//2Zp//9maf8AAIA/AAAAAP9maf9eWez/AAAAAAAAAAD/Zmn//2Zp/wAAAAAAAAAA/2Zp//9maf8AAAAAAACAP/9maf//Zmn/AACAPwAAgD//Zmn//2Zp/wAAgD8AAIA//2Zp//9maf8AAIA/AAAAAP9maf//Zmn/AAAAAAAAAAD/Zmn//2Zp/wAAAAAAAAAA/2Zp/15Z7P8AAAAAAACAP/9maf9eWez/AACAPwAAgD//Zmn/Xlns/wAAgD8AAIA//2Zp//9maf8AAIA/AAAAAP9maf//Zmn/AAAAAAAAAAD/Zmn/"),
+"format": 34359742559,
+"index_count": 36,
+"index_data": PackedByteArray("AAABAAIAAwAEAAUABgAHAAgACQAKAAsADAANAA4ADwAQABEAEgATABQAFQAWABcAGAAZABoAGwAcAB0AHgAfACAAIQAiACMA"),
+"material": SubResource("StandardMaterial3D_my5tw"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 36,
+"vertex_data": PackedByteArray("AEC0PQAAlzwAgBg9AEC0PQAAlzwAgBi9AEC0PQAAl7wAgBi9AEC0PQAAl7wAgBi9AEC0PQAAl7wAgBg9AEC0PQAAlzwAgBg9AEC0PQAAlzwAgBg9AEC0vQAAlzwAgBg9AEC0vQAAlzwAgBi9AEC0vQAAlzwAgBi9AEC0PQAAlzwAgBi9AEC0PQAAlzwAgBg9AEC0PQAAlzwAgBg9AEC0PQAAl7wAgBg9AEC0vQAAl7wAgBg9AEC0vQAAl7wAgBg9AEC0vQAAlzwAgBg9AEC0PQAAlzwAgBg9AEC0vQAAlzwAgBi9AEC0vQAAlzwAgBg9AEC0vQAAl7wAgBg9AEC0vQAAl7wAgBg9AEC0vQAAl7wAgBi9AEC0vQAAlzwAgBi9AEC0vQAAl7wAgBg9AEC0PQAAl7wAgBg9AEC0PQAAl7wAgBi9AEC0PQAAl7wAgBi9AEC0vQAAl7wAgBi9AEC0vQAAl7wAgBg9AEC0PQAAl7wAgBi9AEC0PQAAlzwAgBi9AEC0vQAAlzwAgBi9AEC0vQAAlzwAgBi9AEC0vQAAl7wAgBi9AEC0PQAAl7wAgBi9//8AgP9//n///wCA/3/+f///AID/f/5///8AgP9//n///wCA/3/+f///AID/f/5/AID/////AAAAgP////8AAACA/////wAAAID/////AAAAgP////8AAACA/////wAA/3//fwAA/z//f/9/AAD/P/9//38AAP8//3//fwAA/z//f/9/AAD/P/9//38AAP8/AAAAgP9//n8AAACA/3/+fwAAAID/f/5/AAAAgP9//n8AAACA/3/+fwAAAID/f/5/AIAAAP//AAAAgAAA//8AAACAAAD//wAAAIAAAP//AAAAgAAA//8AAACAAAD//wAA/////wAA/z//////AAD/P/////8AAP8//////wAA/z//////AAD/P/////8AAP8/")
+}]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_wj5tk"]
+points = PackedVector3Array(-0.0880127, -0.0184326, -0.0372314, -0.0880127, 0.018429, -0.0372314, 0.0880127, -0.0184326, -0.0372314, -0.0880127, -0.0184326, 0.0372314, -0.0880127, 0.018429, 0.0372314, 0.0880127, 0.018429, -0.0372314, 0.0880127, -0.0184326, 0.0372314, 0.0880127, 0.018429, 0.0372314)
+
+[node name="AI_Agent" type="CharacterBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.98023e-08, 0)
+script = ExtResource("1_gyaf3")
+
+[node name="BodyMesh" type="MeshInstance3D" parent="."]
+mesh = SubResource("ArrayMesh_ttnf6")
+
+[node name="AgentCollision" type="CollisionShape3D" parent="."]
+shape = SubResource("ConvexPolygonShape3D_wj5tk")
+metadata/_edit_lock_ = true
+
+[node name="Front_Ray" type="RayCast3D" parent="."]
+transform = Transform3D(1.31134e-07, -1, 0, 1, 1.31134e-07, 0, 0, 0, 1, 0.0829768, 0, 0)
+target_position = Vector3(0, -0.085, 0)
+
+[node name="Back_Ray" type="RayCast3D" parent="."]
+transform = Transform3D(-4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0, 1, -0.0845404, 0, 0)
+target_position = Vector3(0, -0.085, 0)
+
+[node name="Right_Ray" type="RayCast3D" parent="."]
+transform = Transform3D(1.91069e-15, -4.37114e-08, 1, -1, -4.37114e-08, 0, 4.37114e-08, -1, -4.37114e-08, 0, 0, 0.0326685)
+target_position = Vector3(0, -0.15, 0)
+
+[node name="Left_Ray" type="RayCast3D" parent="."]
+transform = Transform3D(1.91069e-15, -4.37114e-08, -1, -1, -4.37114e-08, 0, -4.37114e-08, 1, -4.37114e-08, 0, 0, -0.034123)
+target_position = Vector3(0, -0.15, 0)
+
+[node name="CooldownTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.3
+one_shot = true
