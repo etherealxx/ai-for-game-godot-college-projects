@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://cm0ult4wy7j6m"]
+[gd_scene load_steps=8 format=3 uid="uid://cm0ult4wy7j6m"]
 
 [ext_resource type="Script" path="res://2nd Assignment _ Run From Player/scripts/ai_nav_agent_chaser.gd" id="1_d08dt"]
 
@@ -22,6 +22,9 @@ height = 0.064
 radius = 0.0604206
 height = 0.275954
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_sgapa"]
+radius = 1.545
+
 [node name="AINavAgent_Chaser" type="CharacterBody3D"]
 script = ExtResource("1_d08dt")
 target_character = NodePath("../AINavAgent_Runner")
@@ -44,5 +47,11 @@ shape = SubResource("CapsuleShape3D_laon5")
 process_callback = 0
 wait_time = 0.5
 autostart = true
+
+[node name="Area3D" type="Area3D" parent="."]
+collision_layer = 0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D"]
+shape = SubResource("SphereShape3D_sgapa")
 
 [connection signal="timeout" from="UpdateNavtargetTimer" to="." method="_on_update_navtarget_timer_timeout"]

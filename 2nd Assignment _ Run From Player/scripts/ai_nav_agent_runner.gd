@@ -3,7 +3,7 @@ extends CharacterBody3D
 @export var chaser_character : NodePath
 @onready var navagent : NavigationAgent3D = $NavigationAgent3D
 
-var nav_speed := 0.6
+var nav_speed := 0.7
 var nav_accel := 10.0
 var target_character_position : Vector3
 var move_away := false
@@ -26,7 +26,7 @@ func _physics_process(delta):
 	if chaser_character and move_away:
 		var direction := Vector3()
 		
-		direction = -(navagent.get_next_path_position() - self.global_position)
+		direction = -navagent.get_next_path_position()
 		var normalized_xz = Vector2(direction.x, direction.z).normalized()
 		direction = Vector3(
 			normalized_xz.x,
@@ -49,7 +49,7 @@ func _on_check_chaser_timer_timeout() -> void:
 		for body in bodies:
 			if body == get_node(chaser_character):
 				target_character_position = get_node(chaser_character).get_global_position()
-				set_movement_target(target_character_position)
+				set_movement_target(target_character_position - self.global_position)
 				move_away = true
 				break
 	else:

@@ -59,3 +59,4 @@ func _on_update_navtarget_timer_timeout() -> void:
 		target_character_position = get_node(target_character).get_global_position()
 		set_movement_target(target_character_position)
 		print(str(target_character_position))
+		

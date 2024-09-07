@@ -24,7 +24,7 @@ material = SubResource("StandardMaterial3D_5af0a")
 radius = 0.01
 height = 0.124
 
-[node name="AINavAgent_Runner" type="CharacterBody3D"]
+[node name="AINavAgent_Runner" type="CharacterBody3D" groups=["runner"]]
 script = ExtResource("1_foiaj")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="."]
