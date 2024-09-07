@@ -25,6 +25,14 @@ config/icon="res://icon.svg"
 
 enabled=PackedStringArray("res://addons/anthonyec.camera_preview/plugin.cfg", "res://addons/csg_converter/plugin.cfg", "res://addons/gd-blender-3d-shortcuts/plugin.cfg")
 
+[file_customization]
+
+folder_colors={
+"res://1st Assignment _ Simple AI/": "blue",
+"res://2nd Assignment _ Run From Player/": "blue",
+"res://3rd Assignment _ Finite State Machine/": "blue"
+}
+
 [input]
 
 move_up={

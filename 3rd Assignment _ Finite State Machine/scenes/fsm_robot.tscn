@@ -1,0 +1,34 @@
+[gd_scene load_steps=8 format=3 uid="uid://bilbepqyku760"]
+
+[ext_resource type="Script" path="res://3rd Assignment _ Finite State Machine/script/fsm_robot.gd" id="1_8vw4t"]
+[ext_resource type="Texture2D" uid="uid://tt7dbkigcywc" path="res://3rd Assignment _ Finite State Machine/assets/spritesheet_robotsSide.png" id="1_htg2q"]
+[ext_resource type="Script" path="res://3rd Assignment _ Finite State Machine/script/state_machine.gd" id="2_kfgkl"]
+[ext_resource type="Script" path="res://3rd Assignment _ Finite State Machine/script/Robot_Idle.gd" id="4_72of2"]
+[ext_resource type="Script" path="res://3rd Assignment _ Finite State Machine/script/Robot_Moving.gd" id="5_fr5de"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8n2id"]
+atlas = ExtResource("1_htg2q")
+region = Rect2(1, 326, 182, 152)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_28vkg"]
+size = Vector2(182, 154)
+
+[node name="FSM_Robot" type="CharacterBody2D" groups=["robot"]]
+script = ExtResource("1_8vw4t")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_8n2id")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_28vkg")
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
+unique_name_in_owner = true
+script = ExtResource("2_kfgkl")
+initial_state = NodePath("RobotIdle")
+
+[node name="RobotIdle" type="Node" parent="StateMachine"]
+script = ExtResource("4_72of2")
+
+[node name="RobotMoving" type="Node" parent="StateMachine"]
+script = ExtResource("5_fr5de")

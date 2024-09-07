@@ -1,0 +1,88 @@
+[gd_scene load_steps=8 format=4 uid="uid://jugjfulgdmkc"]
+
+[ext_resource type="PackedScene" uid="uid://bilbepqyku760" path="res://3rd Assignment _ Finite State Machine/scenes/fsm_robot.tscn" id="1_tqwen"]
+[ext_resource type="Texture2D" uid="uid://c8ur5sw7ftkqm" path="res://3rd Assignment _ Finite State Machine/assets/grass_sheet.png" id="2_d10ov"]
+[ext_resource type="PackedScene" uid="uid://cmvvu6ki0eh20" path="res://scenes/scene_title.tscn" id="3_8onp4"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_elb83"]
+texture = ExtResource("2_d10ov")
+texture_region_size = Vector2i(70, 70)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+4:0/0 = 0
+5:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+4:2/0 = 0
+4:3/0 = 0
+0:4/0 = 0
+1:4/0 = 0
+2:4/0 = 0
+3:4/0 = 0
+4:4/0 = 0
+0:5/0 = 0
+1:5/0 = 0
+2:5/0 = 0
+3:5/0 = 0
+4:5/0 = 0
+0:6/0 = 0
+1:6/0 = 0
+2:6/0 = 0
+3:6/0 = 0
+4:6/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+0:3/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_t8r42"]
+tile_size = Vector2i(70, 70)
+sources/0 = SubResource("TileSetAtlasSource_elb83")
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eub84"]
+size = Vector2(1121, 72)
+
+[sub_resource type="LabelSettings" id="LabelSettings_ob4q7"]
+font_size = 30
+
+[node name="3ndAssignment" type="Node2D"]
+
+[node name="FSM_Robot" parent="." node_paths=PackedStringArray("label_to_show_state") instance=ExtResource("1_tqwen")]
+position = Vector2(558, 278)
+label_to_show_state = NodePath("../SceneTitle/StateLabel")
+
+[node name="TileMapLayer" type="TileMapLayer" parent="."]
+tile_map_data = PackedByteArray("AAABAAgAAAAEAAMAAAACAAgAAAAEAAMAAAADAAgAAAAEAAMAAAAEAAgAAAAEAAMAAAAFAAgAAAAEAAMAAAAGAAgAAAAEAAMAAAAHAAgAAAAEAAMAAAAIAAgAAAAEAAMAAAAJAAgAAAAEAAMAAAAKAAgAAAAEAAMAAAALAAgAAAAEAAMAAAAMAAgAAAAEAAMAAAANAAgAAAAEAAMAAAAOAAgAAAAEAAMAAAAAAAgAAAADAAMAAAAPAAgAAAADAAIAAAA=")
+tile_set = SubResource("TileSet_t8r42")
+
+[node name="Floor" type="StaticBody2D" parent="TileMapLayer"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMapLayer/Floor"]
+position = Vector2(560.5, 594)
+shape = SubResource("RectangleShape2D_eub84")
+
+[node name="SceneTitle" parent="." instance=ExtResource("3_8onp4")]
+label_text = "Third (3th) Assignment : Finite State Machine"
+
+[node name="Label" parent="SceneTitle/Control" index="0"]
+text = "Third (3th) Assignment : Finite State Machine"
+
+[node name="StateLabel" type="Label" parent="SceneTitle"]
+offset_left = 14.0
+offset_top = 46.0
+offset_right = 158.0
+offset_bottom = 88.0
+text = "State: Idle"
+label_settings = SubResource("LabelSettings_ob4q7")
+metadata/_edit_use_anchors_ = true
+
+[editable path="SceneTitle"]

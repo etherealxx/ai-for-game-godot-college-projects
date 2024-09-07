@@ -36,7 +36,7 @@ func _physics_process(delta):
 	#
 	#velocity = new_velocity * 0.25
 	#move_and_slide()
-	if target_character:
+	if target_character_position:
 		var direction := Vector3()
 		
 		direction = navagent.get_next_path_position() - self.global_position
