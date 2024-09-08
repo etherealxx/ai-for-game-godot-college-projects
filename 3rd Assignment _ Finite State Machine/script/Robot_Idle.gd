@@ -13,5 +13,5 @@ func Physics_Update(delta: float) -> void:
 		
 		robot.move_and_slide()
 		
-		if Input.is_action_pressed("move_left"):
-			Transitioned.emit(self, "")
+		if Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_right"):
+			Transitioned.emit(self, "robotmoving")

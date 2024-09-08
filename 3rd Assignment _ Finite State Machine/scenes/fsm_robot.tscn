@@ -1,10 +1,17 @@
-[gd_scene load_steps=8 format=3 uid="uid://bilbepqyku760"]
+[gd_scene load_steps=10 format=3 uid="uid://bilbepqyku760"]
 
 [ext_resource type="Script" path="res://3rd Assignment _ Finite State Machine/script/fsm_robot.gd" id="1_8vw4t"]
 [ext_resource type="Texture2D" uid="uid://tt7dbkigcywc" path="res://3rd Assignment _ Finite State Machine/assets/spritesheet_robotsSide.png" id="1_htg2q"]
+[ext_resource type="Shader" path="res://3rd Assignment _ Finite State Machine/shaders/robot_outline.gdshader" id="2_hoqc7"]
 [ext_resource type="Script" path="res://3rd Assignment _ Finite State Machine/script/state_machine.gd" id="2_kfgkl"]
 [ext_resource type="Script" path="res://3rd Assignment _ Finite State Machine/script/Robot_Idle.gd" id="4_72of2"]
 [ext_resource type="Script" path="res://3rd Assignment _ Finite State Machine/script/Robot_Moving.gd" id="5_fr5de"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_mru3f"]
+shader = ExtResource("2_hoqc7")
+shader_parameter/line_color = Color(1, 0.09, 0.09, 1)
+shader_parameter/line_thickness = 3.7
+shader_parameter/effect_intensity = 0.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8n2id"]
 atlas = ExtResource("1_htg2q")
@@ -17,9 +24,11 @@ size = Vector2(182, 154)
 script = ExtResource("1_8vw4t")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_mru3f")
 texture = SubResource("AtlasTexture_8n2id")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("RectangleShape2D_28vkg")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("initial_state")]
