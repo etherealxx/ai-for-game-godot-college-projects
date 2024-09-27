@@ -1,0 +1,36 @@
+[gd_scene load_steps=10 format=3 uid="uid://di3liii6paufu"]
+
+[ext_resource type="Script" path="res://5th Assignment _ Probability/scripts/enemy_spawner.gd" id="1_cq0ox"]
+[ext_resource type="PackedScene" uid="uid://c4ixt2pjl8mxc" path="res://5th Assignment _ Probability/scenes/enemy_red.tscn" id="2_px7ls"]
+[ext_resource type="Script" path="res://5th Assignment _ Probability/resources/enemy_prop.gd" id="2_rq4pn"]
+[ext_resource type="PackedScene" uid="uid://cmvvu6ki0eh20" path="res://scenes/scene_title.tscn" id="3_rcrtn"]
+[ext_resource type="PackedScene" uid="uid://jx4qr4o1vp8s" path="res://5th Assignment _ Probability/scenes/enemy_yellow.tscn" id="3_web1f"]
+[ext_resource type="PackedScene" uid="uid://be8jidnflyqc8" path="res://5th Assignment _ Probability/scenes/enemy_green.tscn" id="4_6jfd6"]
+
+[sub_resource type="Resource" id="Resource_jrfek"]
+script = ExtResource("2_rq4pn")
+color_name = "Red"
+scene = ExtResource("2_px7ls")
+chance = 0
+
+[sub_resource type="Resource" id="Resource_6bink"]
+script = ExtResource("2_rq4pn")
+color_name = "Yellow"
+scene = ExtResource("3_web1f")
+chance = 0
+
+[sub_resource type="Resource" id="Resource_d31bh"]
+script = ExtResource("2_rq4pn")
+color_name = "Green"
+scene = ExtResource("4_6jfd6")
+chance = 100
+
+[node name="5thAssignment" type="Node2D"]
+
+[node name="EnemySpawner" type="Marker2D" parent="."]
+position = Vector2(550, 320)
+script = ExtResource("1_cq0ox")
+enemies = Array[ExtResource("2_rq4pn")]([SubResource("Resource_jrfek"), SubResource("Resource_6bink"), SubResource("Resource_d31bh")])
+
+[node name="SceneTitle" parent="." instance=ExtResource("3_rcrtn")]
+label_text = "Fifth (5th) Assignment : Probability"

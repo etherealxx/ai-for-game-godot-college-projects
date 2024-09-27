@@ -13,7 +13,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_86l12")
-choosable_scenes_paths = Array[String](["res://1st Assignment _ Simple AI/1_st_assignment.tscn", "res://2nd Assignment _ Run From Player/2_nd_assignment.tscn", "res://3rd Assignment _ Finite State Machine/3_rd_assignment.tscn"])
+choosable_scenes_paths = Array[String](["res://1st Assignment _ Simple AI/1_st_assignment.tscn", "res://2nd Assignment _ Run From Player/2_nd_assignment.tscn", "res://3rd Assignment _ Finite State Machine/3_rd_assignment.tscn", "res://5th Assignment _ Probability/5_th_assignment.tscn"])
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1

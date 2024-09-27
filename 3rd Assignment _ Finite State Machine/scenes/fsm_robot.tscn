@@ -1,11 +1,11 @@
 [gd_scene load_steps=10 format=3 uid="uid://bilbepqyku760"]
 
-[ext_resource type="Script" path="res://3rd Assignment _ Finite State Machine/script/fsm_robot.gd" id="1_8vw4t"]
+[ext_resource type="Script" path="res://3rd Assignment _ Finite State Machine/scripts/fsm_robot.gd" id="1_8vw4t"]
 [ext_resource type="Texture2D" uid="uid://tt7dbkigcywc" path="res://3rd Assignment _ Finite State Machine/assets/spritesheet_robotsSide.png" id="1_htg2q"]
 [ext_resource type="Shader" path="res://3rd Assignment _ Finite State Machine/shaders/robot_outline.gdshader" id="2_hoqc7"]
-[ext_resource type="Script" path="res://3rd Assignment _ Finite State Machine/script/state_machine.gd" id="2_kfgkl"]
-[ext_resource type="Script" path="res://3rd Assignment _ Finite State Machine/script/Robot_Idle.gd" id="4_72of2"]
-[ext_resource type="Script" path="res://3rd Assignment _ Finite State Machine/script/Robot_Moving.gd" id="5_fr5de"]
+[ext_resource type="Script" path="res://3rd Assignment _ Finite State Machine/scripts/state_machine.gd" id="2_kfgkl"]
+[ext_resource type="Script" path="res://3rd Assignment _ Finite State Machine/scripts/Robot_Idle.gd" id="4_72of2"]
+[ext_resource type="Script" path="res://3rd Assignment _ Finite State Machine/scripts/Robot_Moving.gd" id="5_fr5de"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mru3f"]
 shader = ExtResource("2_hoqc7")
