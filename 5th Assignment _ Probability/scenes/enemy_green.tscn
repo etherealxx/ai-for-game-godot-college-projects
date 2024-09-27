@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://be8jidnflyqc8"]
+
+[sub_resource type="Gradient" id="Gradient_b5f8u"]
+interpolation_mode = 1
+offsets = PackedFloat32Array(0, 0.708945)
+colors = PackedColorArray(0.042, 0.63, 0, 1, 1, 1, 1, 0)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_dc28g"]
+gradient = SubResource("Gradient_b5f8u")
+width = 32
+height = 32
+fill = 1
+fill_from = Vector2(0.5, 0.5)
+
+[node name="EnemyGreen" type="Sprite2D"]
+texture_filter = 1
+texture = SubResource("GradientTexture2D_dc28g")
