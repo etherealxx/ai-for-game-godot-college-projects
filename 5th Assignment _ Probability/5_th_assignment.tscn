@@ -11,13 +11,13 @@
 script = ExtResource("2_rq4pn")
 color_name = "Red"
 scene = ExtResource("2_px7ls")
-chance = 0
+chance = 100
 
 [sub_resource type="Resource" id="Resource_6bink"]
 script = ExtResource("2_rq4pn")
 color_name = "Yellow"
 scene = ExtResource("3_web1f")
-chance = 0
+chance = 100
 
 [sub_resource type="Resource" id="Resource_d31bh"]
 script = ExtResource("2_rq4pn")

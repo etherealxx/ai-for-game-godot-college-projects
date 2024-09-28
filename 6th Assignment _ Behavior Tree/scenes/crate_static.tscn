@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://c4br7lhbvmber"]
+
+[ext_resource type="PackedScene" uid="uid://burskpdo5i8e8" path="res://6th Assignment _ Behavior Tree/scenes/models/crate_model.tscn" id="1_j723d"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ga6dr"]
+size = Vector3(1.00098, 0.993835, 0.998047)
+
+[node name="Crate" type="StaticBody3D"]
+
+[node name="CrateModel" parent="." instance=ExtResource("1_j723d")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1.008, 0, 0, 0, 1.008, 0, 0, 0, 1.008, 0.00462882, 0.508119, 0)
+shape = SubResource("BoxShape3D_ga6dr")

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddqlfc11n2t0p"]
+
+[ext_resource type="PackedScene" uid="uid://c6l8k0ovxfk6a" path="res://6th Assignment _ Behavior Tree/scenes/models/skeleton_model.tscn" id="1_b010i"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_fqfod"]
+radius = 0.181741
+height = 0.961531
+
+[node name="Skeleton" type="StaticBody3D"]
+collision_layer = 2
+collision_mask = 3
+
+[node name="SkeletonModel" parent="." instance=ExtResource("1_b010i")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.483776, 0)
+shape = SubResource("CapsuleShape3D_fqfod")

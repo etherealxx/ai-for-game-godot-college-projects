@@ -1,0 +1,24 @@
+[gd_scene load_steps=7 format=3 uid="uid://burskpdo5i8e8"]
+
+[ext_resource type="PackedScene" uid="uid://bdq5cerkhuscb" path="res://6th Assignment _ Behavior Tree/assets/models/Crate/Crate.blend" id="1_v3xit"]
+[ext_resource type="Texture2D" uid="uid://b1p7h2chgbtku" path="res://6th Assignment _ Behavior Tree/assets/models/Crate/textures/Crate_Base_Color.png" id="2_huint"]
+[ext_resource type="Texture2D" uid="uid://6ycg2f3e3qgc" path="res://6th Assignment _ Behavior Tree/assets/models/Crate/textures/Crate_Metallic.png" id="3_w6a2c"]
+[ext_resource type="Texture2D" uid="uid://bo5x1mjq4p1p0" path="res://6th Assignment _ Behavior Tree/assets/models/Crate/textures/Crate_Height.png" id="4_b3w1p"]
+[ext_resource type="Texture2D" uid="uid://yvlfrub1xge8" path="res://6th Assignment _ Behavior Tree/assets/models/Crate/textures/Crate_Roughness.png" id="5_c42i6"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pyaau"]
+resource_name = "Crate"
+cull_mode = 2
+albedo_texture = ExtResource("2_huint")
+metallic = 1.0
+metallic_texture = ExtResource("3_w6a2c")
+metallic_texture_channel = 2
+roughness_texture = ExtResource("5_c42i6")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("4_b3w1p")
+
+[node name="CrateModel" instance=ExtResource("1_v3xit")]
+
+[node name="Crate" parent="." index="0"]
+surface_material_override/0 = SubResource("StandardMaterial3D_pyaau")

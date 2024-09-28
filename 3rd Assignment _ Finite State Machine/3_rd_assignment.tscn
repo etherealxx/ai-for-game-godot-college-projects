@@ -54,7 +54,7 @@ size = Vector2(1121, 72)
 [sub_resource type="LabelSettings" id="LabelSettings_ob4q7"]
 font_size = 30
 
-[node name="3rdAssignment" type="Node2D"]
+[node name="3ndAssignment" type="Node2D"]
 
 [node name="FSM_Robot" parent="." node_paths=PackedStringArray("label_to_show_state") instance=ExtResource("1_tqwen")]
 position = Vector2(558, 278)
@@ -71,10 +71,10 @@ position = Vector2(560.5, 594)
 shape = SubResource("RectangleShape2D_eub84")
 
 [node name="SceneTitle" parent="." instance=ExtResource("3_8onp4")]
-label_text = "Third (3rd) Assignment : Finite State Machine"
+label_text = "Third (3th) Assignment : Finite State Machine"
 
 [node name="Label" parent="SceneTitle/Control" index="0"]
-text = "Third (3rd) Assignment : Finite State Machine"
+text = "Third (3th) Assignment : Finite State Machine"
 
 [node name="StateLabel" type="Label" parent="SceneTitle"]
 offset_left = 14.0

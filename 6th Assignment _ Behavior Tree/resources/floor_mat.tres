@@ -1,0 +1,19 @@
+[gd_resource type="StandardMaterial3D" load_steps=5 format=3 uid="uid://datp4cu25c2k5"]
+
+[ext_resource type="Texture2D" uid="uid://dahh74xny6qo" path="res://6th Assignment _ Behavior Tree/assets/materials/floor/Tiles089_1K-JPG_Color.jpg" id="1_5pp5j"]
+[ext_resource type="Texture2D" uid="uid://dj5coy6apejgx" path="res://6th Assignment _ Behavior Tree/assets/materials/floor/Tiles089_1K-JPG_AmbientOcclusion.jpg" id="2_3vbba"]
+[ext_resource type="Texture2D" uid="uid://g5iykqr76oau" path="res://6th Assignment _ Behavior Tree/assets/materials/floor/Tiles089_1K-JPG_NormalGL.jpg" id="3_o28ni"]
+[ext_resource type="Texture2D" uid="uid://paqqjyu6cnwi" path="res://6th Assignment _ Behavior Tree/assets/materials/floor/Tiles089_1K-JPG_Roughness.jpg" id="4_8na17"]
+
+[resource]
+albedo_texture = ExtResource("1_5pp5j")
+roughness_texture = ExtResource("4_8na17")
+roughness_texture_channel = 1
+normal_enabled = true
+normal_texture = ExtResource("3_o28ni")
+ao_enabled = true
+ao_texture = ExtResource("2_3vbba")
+heightmap_deep_parallax = true
+heightmap_min_layers = 8
+heightmap_max_layers = 32
+uv1_scale = Vector3(10, 10, 10)
