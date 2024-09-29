@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://dxtf4aon8hh0n"]
+[gd_scene load_steps=18 format=3 uid="uid://dxtf4aon8hh0n"]
 
 [ext_resource type="PackedScene" uid="uid://dgr6e2hsbumgl" path="res://otherassets/GDQuest 3D WorldEnvi/GDQuest 3D WorldEnvi.tscn" id="1_r3drm"]
 [ext_resource type="PackedScene" uid="uid://cmvvu6ki0eh20" path="res://scenes/scene_title.tscn" id="2_rmanh"]
@@ -9,11 +9,12 @@
 [ext_resource type="Script" path="res://addons/beehave/nodes/composites/sequence.gd" id="5_7btu6"]
 [ext_resource type="PackedScene" uid="uid://c4br7lhbvmber" path="res://6th Assignment _ Behavior Tree/scenes/crate_static.tscn" id="6_cvn0p"]
 [ext_resource type="Script" path="res://6th Assignment _ Behavior Tree/scripts/knight_beehave_tree/patrol_action.gd" id="6_rmj57"]
+[ext_resource type="Script" path="res://addons/beehave/nodes/decorators/inverter.gd" id="7_meiqg"]
 [ext_resource type="Script" path="res://addons/beehave/nodes/composites/selector.gd" id="7_mlye5"]
 [ext_resource type="Script" path="res://6th Assignment _ Behavior Tree/scripts/knight_beehave_tree/is_enemy_in_fov_range.gd" id="8_7w6cw"]
-[ext_resource type="Script" path="res://addons/beehave/nodes/leaves/condition.gd" id="8_hetn7"]
 [ext_resource type="Script" path="res://6th Assignment _ Behavior Tree/scripts/knight_beehave_tree/goto_target_action.gd" id="9_3x7xf"]
-[ext_resource type="Script" path="res://addons/beehave/nodes/leaves/action.gd" id="9_e84bm"]
+[ext_resource type="Script" path="res://6th Assignment _ Behavior Tree/scripts/knight_beehave_tree/is_enemy_in_attack_range.gd" id="10_1wvkr"]
+[ext_resource type="Script" path="res://6th Assignment _ Behavior Tree/scripts/knight_beehave_tree/attack_action.gd" id="11_nnkap"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_jva4l"]
 material = ExtResource("2_swm77")
@@ -46,38 +47,47 @@ visible = false
 
 [node name="BeehaveTree" type="Node" parent="Knight" node_paths=PackedStringArray("blackboard", "actor")]
 script = ExtResource("4_xtqqm")
-blackboard = NodePath("@Node@17526")
+blackboard = NodePath("@Node@169745")
 actor = NodePath("..")
 
-[node name="SequenceComposite" type="Node" parent="Knight/BeehaveTree"]
+[node name="SelectorComposite" type="Node" parent="Knight/BeehaveTree"]
+script = ExtResource("7_mlye5")
+
+[node name="SequenceComposite3" type="Node" parent="Knight/BeehaveTree/SelectorComposite"]
 script = ExtResource("5_7btu6")
 
-[node name="PatrolAction" type="Node" parent="Knight/BeehaveTree/SequenceComposite"]
-script = ExtResource("6_rmj57")
+[node name="InverterDecorator" type="Node" parent="Knight/BeehaveTree/SelectorComposite/SequenceComposite3"]
+script = ExtResource("7_meiqg")
 
-[node name="SelectorComposite" type="Node" parent="Knight/BeehaveTree/SequenceComposite"]
-script = ExtResource("7_mlye5")
-
-[node name="IsEnemyInFOVRange" type="Node" parent="Knight/BeehaveTree/SequenceComposite/SelectorComposite"]
+[node name="IsEnemyInFOVRange" type="Node" parent="Knight/BeehaveTree/SelectorComposite/SequenceComposite3/InverterDecorator"]
 script = ExtResource("8_7w6cw")
 
-[node name="GotoTargetAction" type="Node" parent="Knight/BeehaveTree/SequenceComposite/SelectorComposite"]
+[node name="PatrolAction" type="Node" parent="Knight/BeehaveTree/SelectorComposite/SequenceComposite3"]
+script = ExtResource("6_rmj57")
+
+[node name="SequenceComposite2" type="Node" parent="Knight/BeehaveTree/SelectorComposite"]
+script = ExtResource("5_7btu6")
+
+[node name="IsEnemyInAttackRange" type="Node" parent="Knight/BeehaveTree/SelectorComposite/SequenceComposite2"]
+script = ExtResource("10_1wvkr")
+
+[node name="AttackAction" type="Node" parent="Knight/BeehaveTree/SelectorComposite/SequenceComposite2"]
+script = ExtResource("11_nnkap")
+
+[node name="SequenceComposite" type="Node" parent="Knight/BeehaveTree/SelectorComposite"]
+script = ExtResource("5_7btu6")
+
+[node name="IsEnemyInFOVRange" type="Node" parent="Knight/BeehaveTree/SelectorComposite/SequenceComposite"]
+script = ExtResource("8_7w6cw")
+
+[node name="GotoTargetAction" type="Node" parent="Knight/BeehaveTree/SelectorComposite/SequenceComposite"]
 script = ExtResource("9_3x7xf")
 
-[node name="SelectorComposite2" type="Node" parent="Knight/BeehaveTree/SequenceComposite"]
-script = ExtResource("7_mlye5")
-
-[node name="IsEnemyInAttackRange" type="Node" parent="Knight/BeehaveTree/SequenceComposite/SelectorComposite2"]
-script = ExtResource("8_hetn7")
-
-[node name="AttackAction" type="Node" parent="Knight/BeehaveTree/SequenceComposite/SelectorComposite2"]
-script = ExtResource("9_e84bm")
-
 [node name="Skeleton" parent="." instance=ExtResource("4_2xgcq")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.262798, 0, -1.71289)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.21211, 0, -1.71289)
 
 [node name="Crate" parent="." instance=ExtResource("6_cvn0p")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.61012, 0, -0.305338)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9809, 0, 0.0546584)
 
 [node name="Crate4" parent="." instance=ExtResource("6_cvn0p")]
 transform = Transform3D(0.722629, 0, 0.691236, 0, 1, 0, -0.691236, 0, 0.722629, -4.14634, 0, -0.305338)

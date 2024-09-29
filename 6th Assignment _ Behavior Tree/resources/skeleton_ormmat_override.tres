@@ -1,0 +1,13 @@
+[gd_resource type="ORMMaterial3D" load_steps=4 format=3 uid="uid://yqy3sef3ow7a"]
+
+[ext_resource type="Texture2D" uid="uid://dcwxqeuic3ga" path="res://6th Assignment _ Behavior Tree/assets/models/Skeleton/skeletonrig_small_lofi_Skeleton_BaseColor.jpg" id="1_b04wu"]
+[ext_resource type="Texture2D" uid="uid://cb0np3o7l8gnk" path="res://6th Assignment _ Behavior Tree/assets/models/Skeleton/skeletonrig_small_lofi_Skeleton_Normal.jpg" id="2_swnb5"]
+[ext_resource type="Texture2D" uid="uid://cekeh1ge3mrs4" path="res://6th Assignment _ Behavior Tree/assets/models/Skeleton/skeletonrig_small_lofi_Skeleton_Metallic-lofi_Skeleton_Roughness.jpg" id="3_ih2wv"]
+
+[resource]
+cull_mode = 2
+albedo_texture = ExtResource("1_b04wu")
+orm_texture = ExtResource("3_ih2wv")
+normal_enabled = true
+normal_texture = ExtResource("2_swnb5")
+rim_enabled = true

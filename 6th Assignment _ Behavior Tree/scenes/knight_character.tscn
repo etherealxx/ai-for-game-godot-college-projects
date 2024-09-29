@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=3 uid="uid://bhobdiaqtx0u2"]
+[gd_scene load_steps=13 format=3 uid="uid://bhobdiaqtx0u2"]
 
 [ext_resource type="Script" path="res://6th Assignment _ Behavior Tree/scripts/knight_patrol.gd" id="1_et4rs"]
 [ext_resource type="PackedScene" uid="uid://0cmupwvh3mbp" path="res://6th Assignment _ Behavior Tree/scenes/models/knight_model.tscn" id="1_ti06i"]
@@ -21,7 +21,7 @@ animation = &"Run"
 [sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_878po"]
 
 [sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_ptfrh"]
-graph_offset = Vector2(-133.063, 164.873)
+graph_offset = Vector2(-247.257, 85.6416)
 nodes/AttackAnim/node = SubResource("AnimationNodeAnimation_1bkml")
 nodes/AttackAnim/position = Vector2(500, 320)
 nodes/AttackBlend/node = SubResource("AnimationNodeBlend2_50d0d")
@@ -41,6 +41,9 @@ size = Vector3(0.05, 0.05, 0.5)
 [sub_resource type="SphereShape3D" id="SphereShape3D_ajw12"]
 radius = 2.29747
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_3b3ep"]
+radius = 0.405
+
 [node name="Knight" type="CharacterBody3D" node_paths=PackedStringArray("animplyr", "animtree")]
 collision_mask = 3
 script = ExtResource("1_et4rs")
@@ -50,25 +53,43 @@ animtree = NodePath("AnimationTree")
 [node name="KnightModel" parent="." instance=ExtResource("1_ti06i")]
 
 [node name="Skeleton3D" parent="KnightModel/Knight_rig" index="8"]
-bones/1/position = Vector3(0.011436, 0.185257, -0.0544286)
-bones/3/rotation = Quaternion(-0.0150346, -1.68727e-05, 0.0013845, 0.999886)
-bones/5/rotation = Quaternion(-0.00384219, 0.19726, 0.00785327, 0.980312)
-bones/8/rotation = Quaternion(-0.283079, -0.374115, 0.481447, 0.740347)
-bones/9/rotation = Quaternion(-0.759147, -0.000303997, -0.12482, 0.63884)
-bones/10/rotation = Quaternion(0.140632, 0.907833, 0.151034, 0.365034)
-bones/21/rotation = Quaternion(-0.278122, 0.32213, -0.517567, 0.742297)
-bones/22/rotation = Quaternion(-0.778134, 0.000292575, 0.127943, 0.614929)
-bones/23/rotation = Quaternion(0.196105, 0.959616, 0.15237, -0.132152)
-bones/36/rotation = Quaternion(0.782756, 0.255768, -0.0496145, 0.565168)
-bones/37/rotation = Quaternion(0.653685, 1.85452e-09, 8.63129e-08, 0.756767)
-bones/38/rotation = Quaternion(-0.337234, -0.0436786, 0.181457, 0.922734)
-bones/41/rotation = Quaternion(0.863423, -0.136081, -0.246092, 0.418834)
-bones/42/rotation = Quaternion(0.682155, 9.50851e-09, -1.64276e-07, 0.731208)
-bones/43/rotation = Quaternion(-0.484277, 0.329759, -0.259907, 0.767583)
-bones/63/position = Vector3(0.238892, 0.356976, 0.094546)
-bones/63/rotation = Quaternion(0.168333, -0.25845, 0.948625, -0.0705506)
-bones/67/position = Vector3(-0.0928788, 0.382797, -0.238716)
-bones/70/rotation = Quaternion(-0.171723, -0.455946, 0.871947, 0.0482925)
+bones/1/position = Vector3(0.011436, 0.18687, -0.0544286)
+bones/1/rotation = Quaternion(0.0329016, 0.00988836, -0.0653824, 0.997269)
+bones/3/rotation = Quaternion(-0.0150241, -1.49554e-08, -4.1723e-09, 0.999887)
+bones/5/rotation = Quaternion(0.0191252, -0.0132831, 0.0647781, 0.997628)
+bones/8/rotation = Quaternion(-0.270722, -0.154925, 0.456164, 0.83344)
+bones/9/rotation = Quaternion(-0.663853, -0.000352066, -0.109152, 0.739854)
+bones/10/rotation = Quaternion(0.0957573, 0.97497, 0.0114032, 0.200337)
+bones/13/rotation = Quaternion(-0.00580586, 0.000314565, -0.100587, 0.994911)
+bones/16/rotation = Quaternion(0.0462646, -0.0192192, -0.188318, 0.98083)
+bones/21/rotation = Quaternion(-0.826319, 0.548217, -0.106872, 0.0723396)
+bones/22/rotation = Quaternion(-0.00349796, 0.000475844, 0.000575151, 0.999994)
+bones/23/rotation = Quaternion(0.0184389, 0.941635, 0.31387, 0.120286)
+bones/27/rotation = Quaternion(-0.00580588, -0.000314574, 0.100586, 0.994911)
+bones/30/rotation = Quaternion(0.019467, -0.00472842, 0.187372, 0.982085)
+bones/36/rotation = Quaternion(0.747826, 0.19181, 0.191506, 0.606045)
+bones/37/rotation = Quaternion(0.622259, 2.0508e-09, 8.95833e-08, 0.782811)
+bones/38/rotation = Quaternion(-0.260047, -0.0779194, 0.191807, 0.943141)
+bones/41/rotation = Quaternion(0.920941, -0.157406, -0.0459568, 0.353523)
+bones/42/rotation = Quaternion(0.61437, 1.41699e-09, -2.02732e-07, 0.789018)
+bones/43/rotation = Quaternion(-0.419945, 0.351004, -0.24627, 0.799871)
+bones/44/rotation = Quaternion(-1.47857e-07, 0.857549, -0.514402, -1.77975e-07)
+bones/47/rotation = Quaternion(-1.44457e-07, 0.0575896, 0.99834, -4.77367e-09)
+bones/49/rotation = Quaternion(-1.34742e-07, 0.0601202, 0.998191, -6.33933e-08)
+bones/53/rotation = Quaternion(0.487339, 0.519819, -0.542832, -0.444548)
+bones/54/rotation = Quaternion(0.528561, -0.469705, 0.528561, -0.469706)
+bones/57/rotation = Quaternion(-1.68431e-07, 0.0601203, 0.998191, -4.59128e-08)
+bones/58/rotation = Quaternion(0.528561, 0.469706, -0.528561, -0.469706)
+bones/63/position = Vector3(0.257867, 0.272237, -0.0979521)
+bones/63/rotation = Quaternion(0.122383, -0.494375, 0.855998, -0.0887879)
+bones/64/position = Vector3(0.152522, 0.0540431, 0.0648556)
+bones/64/rotation = Quaternion(-0.707107, 8.42937e-08, -8.42937e-08, 0.707107)
+bones/65/position = Vector3(-0.15192, 0.0502849, -0.0415936)
+bones/65/rotation = Quaternion(-0.6608, -0.265807, -0.257663, 0.652917)
+bones/67/position = Vector3(-0.0925496, 0.382213, -0.238544)
+bones/69/rotation = Quaternion(-0.5, 0.5, 0.5, -0.5)
+bones/70/position = Vector3(-0.0998164, 0.423827, 0.266854)
+bones/70/rotation = Quaternion(0.0381989, -0.451062, 0.851223, 0.265525)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.425381, 0)
@@ -94,13 +115,23 @@ process_callback = 0
 one_shot = true
 
 [node name="EnemyDetector" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.182137, 0)
 collision_layer = 0
 collision_mask = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="EnemyDetector"]
 shape = SubResource("SphereShape3D_ajw12")
 
+[node name="EnemyAttackArea" type="Area3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.182137, 0)
+collision_layer = 0
+collision_mask = 2
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="EnemyAttackArea"]
+shape = SubResource("SphereShape3D_3b3ep")
+
 [connection signal="timeout" from="IdleTimer" to="." method="_on_idle_timer_timeout"]
 [connection signal="body_entered" from="EnemyDetector" to="." method="_on_enemy_detector_body_entered"]
+[connection signal="body_entered" from="EnemyAttackArea" to="." method="_on_enemy_detector_body_entered"]
 
 [editable path="KnightModel"]
