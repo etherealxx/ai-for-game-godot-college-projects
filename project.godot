@@ -40,6 +40,7 @@ folder_colors={
 "res://1st Assignment _ Simple AI/": "blue",
 "res://2nd Assignment _ Run From Player/": "blue",
 "res://3rd Assignment _ Finite State Machine/": "blue",
+"res://4th Assignment _ Hierarchical State Machine/": "blue",
 "res://5th Assignment _ Probability/": "blue",
 "res://6th Assignment _ Behavior Tree/": "blue"
 }

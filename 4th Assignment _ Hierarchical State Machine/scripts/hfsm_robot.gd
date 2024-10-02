@@ -1,15 +1,13 @@
 extends CharacterBody2D
 
-@export var label_to_show_state : Label
-
 const SPEED = 300.0
 const JUMP_VELOCITY = -400.0
 
-func _process(_delta: float) -> void:
-	if label_to_show_state:
-		label_to_show_state.text = "State: " + %StateMachine.current_state.name
-	#pass
+@export var state_machine : StateMachineRes
 
+func _ready():
+	state_machine.parent = self
+	print(state_machine.parent.name)
 #func _physics_process(delta: float) -> void:
 	## Add the gravity.
 	#if not is_on_floor():

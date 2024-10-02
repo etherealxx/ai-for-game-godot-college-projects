@@ -47,7 +47,7 @@ visible = false
 
 [node name="BeehaveTree" type="Node" parent="Knight" node_paths=PackedStringArray("blackboard", "actor")]
 script = ExtResource("4_xtqqm")
-blackboard = NodePath("@Node@169745")
+blackboard = NodePath("@Node@17320")
 actor = NodePath("..")
 
 [node name="SelectorComposite" type="Node" parent="Knight/BeehaveTree"]
