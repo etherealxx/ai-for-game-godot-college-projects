@@ -1,0 +1,43 @@
+[gd_resource type="Resource" script_class="RobotStateRes" load_steps=3 format=3 uid="uid://dbpldlskldsfo"]
+
+[ext_resource type="Script" path="res://4th Assignment _ Hierarchical State Machine/scripts/resources/robot_state.gd" id="1_sqlkm"]
+
+[sub_resource type="GDScript" id="GDScript_6ug21"]
+script/source = "extends RobotStateRes
+
+var robot : CharacterBody2D
+var robotsprite : Sprite2D
+var robotshadermat : Material
+const SPEED = 400.0
+
+func state_name():
+	return \"robotmoving\"
+
+func Enter() -> void:
+	if parent_reference:
+		robot = parent_reference
+		robotsprite = robot.get_node(\"Sprite2D\")
+		robotshadermat = robotsprite.get_material()
+		robotshadermat.set_shader_parameter(\"effect_intensity\", 1)
+
+func Exit() -> void:
+	robotshadermat.set_shader_parameter(\"effect_intensity\", 0)
+
+func Physics_Update(_delta: float) -> void:
+	if robot:
+
+		var direction := Input.get_axis(\"move_left\", \"move_right\")
+		if direction:
+			if direction == 1: robotsprite.set_flip_h(false)
+			elif direction == -1: robotsprite.set_flip_h(true)
+			robot.velocity.x = direction * SPEED
+			robot.move_and_slide()
+		else:
+			robot.velocity.x = move_toward(robot.velocity.x, 0, SPEED)
+			robot.move_and_slide()
+			Transitioned.emit(self, \"robotidle\")
+"
+
+[resource]
+script = ExtResource("1_sqlkm")
+replacement_script = SubResource("GDScript_6ug21")

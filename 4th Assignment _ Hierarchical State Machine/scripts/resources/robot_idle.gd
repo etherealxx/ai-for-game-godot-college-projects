@@ -1,5 +1,4 @@
 extends RobotStateRes
-class_name RobotIdleRes
 
 var robot
 	
