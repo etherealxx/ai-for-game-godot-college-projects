@@ -77,7 +77,7 @@ font_size = 30
 [node name="HFSM_Robot" type="CharacterBody2D" parent="." groups=["robot"]]
 position = Vector2(558, 278)
 script = ExtResource("1_qsyti")
-test_state = ExtResource("2_b6ejv")
+initial_state = ExtResource("2_q1hye")
 possible_state = Array[ExtResource("2_q0ikj")]([ExtResource("2_q1hye"), ExtResource("2_b6ejv")])
 
 [node name="Sprite2D" type="Sprite2D" parent="HFSM_Robot"]
