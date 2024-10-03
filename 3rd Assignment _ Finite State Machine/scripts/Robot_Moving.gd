@@ -10,6 +10,7 @@ func Enter() -> void:
 	robot = get_tree().get_first_node_in_group("robot")
 	robotsprite = robot.get_node("Sprite2D")
 	robotshadermat = robotsprite.get_material()
+	robotshadermat.set_shader_parameter("line_color",Color("ff1717"))
 	robotshadermat.set_shader_parameter("effect_intensity", 1)
 
 func Exit() -> void:

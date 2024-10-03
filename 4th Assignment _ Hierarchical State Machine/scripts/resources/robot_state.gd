@@ -1,7 +1,7 @@
 extends Resource
 class_name RobotStateRes
 
-@export var replacement_script : Script
+const SPEED = 400.0
 var parent_reference : Node
 @warning_ignore("unused_signal")
 signal Transitioned
@@ -18,8 +18,8 @@ func Update(_delta: float) -> void:
 func Physics_Update(_delta: float) -> void:
 	pass
 
-func replace_script():
-	set_script(replacement_script)
+#func replace_script():
+	#set_script(replacement_script)
 	
 func give_parent_reference(node: Node):
 	parent_reference = node

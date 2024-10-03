@@ -1,10 +1,11 @@
-[gd_scene load_steps=19 format=4 uid="uid://b7qjvrerv280x"]
+[gd_scene load_steps=21 format=4 uid="uid://b7qjvrerv280x"]
 
 [ext_resource type="Script" path="res://4th Assignment _ Hierarchical State Machine/scripts/hfsm_robot.gd" id="1_qsyti"]
 [ext_resource type="Shader" path="res://3rd Assignment _ Finite State Machine/shaders/robot_outline.gdshader" id="2_p8os6"]
 [ext_resource type="Script" path="res://4th Assignment _ Hierarchical State Machine/scripts/resources/robot_state.gd" id="2_q0ikj"]
 [ext_resource type="Texture2D" uid="uid://tt7dbkigcywc" path="res://3rd Assignment _ Finite State Machine/assets/spritesheet_robotsSide.png" id="3_gpnrh"]
 [ext_resource type="Script" path="res://4th Assignment _ Hierarchical State Machine/scripts/resources/robot_idle.gd" id="3_vxo1w"]
+[ext_resource type="Script" path="res://4th Assignment _ Hierarchical State Machine/scripts/resources/robot_jumping.gd" id="4_tf5ea"]
 [ext_resource type="Script" path="res://4th Assignment _ Hierarchical State Machine/scripts/resources/robot_moving.gd" id="5_b41iu"]
 [ext_resource type="Texture2D" uid="uid://c8ur5sw7ftkqm" path="res://3rd Assignment _ Finite State Machine/assets/grass_sheet.png" id="7_ufw2l"]
 [ext_resource type="PackedScene" uid="uid://cmvvu6ki0eh20" path="res://scenes/scene_title.tscn" id="8_jd5xi"]
@@ -15,8 +16,11 @@ script = ExtResource("3_vxo1w")
 [sub_resource type="Resource" id="Resource_qyck5"]
 script = ExtResource("3_vxo1w")
 
-[sub_resource type="Resource" id="Resource_u3gdq"]
+[sub_resource type="Resource" id="Resource_iheau"]
 script = ExtResource("5_b41iu")
+
+[sub_resource type="Resource" id="Resource_xxmj0"]
+script = ExtResource("4_tf5ea")
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_mru3f"]
 shader = ExtResource("2_p8os6")
@@ -88,7 +92,7 @@ position = Vector2(558, 278)
 script = ExtResource("1_qsyti")
 label_to_show_state = NodePath("../SceneTitle/StateLabel")
 initial_state = SubResource("Resource_63xbv")
-possible_state = Array[ExtResource("2_q0ikj")]([SubResource("Resource_qyck5"), SubResource("Resource_u3gdq")])
+possible_state = Array[ExtResource("2_q0ikj")]([SubResource("Resource_qyck5"), SubResource("Resource_iheau"), SubResource("Resource_xxmj0")])
 
 [node name="Sprite2D" type="Sprite2D" parent="HFSM_Robot"]
 material = SubResource("ShaderMaterial_mru3f")
