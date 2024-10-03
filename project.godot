@@ -14,11 +14,12 @@ config/name="AI-for-game-godot-college-projects"
 config/description="College project of me (Etherealxx)
 5th semester
 AI in Game"
-config/version="0.0.2"
+config/version="0.0.6"
 run/main_scene="res://scenes/main_scene_assignment_select.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="AI-for-game-godot-college-projects"
 config/features=PackedStringArray("4.3", "Forward Plus")
+boot_splash/show_image=false
 config/icon="res://icon.svg"
 
 [autoload]
