@@ -1,6 +1,6 @@
 [gd_resource type="Resource" script_class="RobotStateRes" load_steps=3 format=3 uid="uid://t741r50w6g51"]
 
-[ext_resource type="Script" path="res://4th Assignment _ Hierarchical State Machine/resources/scripts/robotidle_script.gd" id="1_5k5eq"]
+[ext_resource type="Script" path="res://4th Assignment _ Hierarchical State Machine/resources/unused/scripts/robotidle_script.gd" id="1_5k5eq"]
 [ext_resource type="Script" path="res://4th Assignment _ Hierarchical State Machine/scripts/resources/robot_state.gd" id="1_dj2iw"]
 
 [resource]

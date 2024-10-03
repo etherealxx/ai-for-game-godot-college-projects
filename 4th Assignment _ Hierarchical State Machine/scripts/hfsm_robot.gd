@@ -15,7 +15,6 @@ func _ready() -> void:
 	for onestate in possible_state:
 		#onestate.replace_script()
 		#onestate.give_parent_reference(self)
-		onestate.replace_script()
 		onestate.give_parent_reference(self)
 		states[onestate.state_name()] = onestate
 		onestate.Transitioned.connect(_on_child_transition)
@@ -25,7 +24,8 @@ func _ready() -> void:
 		#initial_state.give_parent_reference(self)
 		#initial_state.Enter()
 		#current_state = initial_state
-	var initial_state = possible_state[0]
+		
+	initial_state = states[initial_state.state_name()]
 	#initial_state.replace_script()
 	#initial_state.give_parent_reference(self)
 	initial_state.Enter()
@@ -57,7 +57,7 @@ func _physics_process(delta: float) -> void:
 
 func _on_child_transition(state, next_state_name : String):
 	#print(state, next_state_name)
-	if state != current_state.state_name():
+	if state != current_state:
 		return
 		
 	var new_state : RobotStateRes = states.get(next_state_name)

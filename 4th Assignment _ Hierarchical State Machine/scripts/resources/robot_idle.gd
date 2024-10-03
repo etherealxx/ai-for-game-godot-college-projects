@@ -1,7 +1,15 @@
 extends RobotStateRes
+class_name RobotIdleRes
 
 var robot
-	
+
+func state_name():
+	return "robotidle"
+
+func Enter() -> void:
+	if parent_reference:
+		robot = parent_reference
+
 func Physics_Update(delta: float) -> void:
 	if robot:
 		if not robot.is_on_floor():
