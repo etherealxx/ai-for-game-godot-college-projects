@@ -6,12 +6,17 @@ extends CharacterBody3D
 var nav_speed := 0.4
 var nav_accel := 10.0
 var target_character_position : Vector3
+var map_ready = false
 
 func _ready() -> void:
 	navagent.target_desired_distance = 0.5
 	if target_character:
 		target_character_position = get_node(target_character).get_global_position()
+	NavigationServer3D.map_changed.connect(_on_map_ready)
 	call_deferred("actor_setup")
+	
+func _on_map_ready(_rid):
+	map_ready = true
 
 func set_movement_target(movement_target: Vector3):
 	var xz_pos = Vector3(
@@ -36,7 +41,7 @@ func _physics_process(delta):
 	#
 	#velocity = new_velocity * 0.25
 	#move_and_slide()
-	if target_character_position:
+	if target_character_position and map_ready:
 		var direction := Vector3()
 		
 		direction = navagent.get_next_path_position() - self.global_position
@@ -67,12 +72,15 @@ func get_distance_to(body : Node) -> float:
 func _on_target_locking_timer_timeout() -> void:
 	print("detecting new target")
 	var bodies : Array = $Area3D.get_overlapping_bodies()
-	var closest_body : Node
+	
+	var closest_body # Node
 	if not bodies.is_empty():
 		for body : Node in bodies:
 			if body.is_in_group("runner") and body != get_node(target_character):
 				#Vector3.distance_to()
+				@warning_ignore("unassigned_variable")
 				if closest_body:
+					@warning_ignore("unassigned_variable")
 					if get_distance_to(body) < get_distance_to(closest_body): # the newly detected body is closer
 						closest_body = body
 				else:

@@ -10,4 +10,6 @@ Model licenses:
 "The Cartoon Knight anim", is adapted from ["The Cartoon Knight Rig"](https://app.gumroad.com/d/aec61e3b30b6bdb5ad36bed59d56c7f4) by Lucas De Miguel, used under CC BY 4.0.
 "The Cartoon Knight anim" is licensed under CC BY 4.0 by Etherealxx. 
 
+Blender is needed (and set up) to open this project. Version 4.0+ recommended.
+
 Godot License: https://godotengine.org/license
