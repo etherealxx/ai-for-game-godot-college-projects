@@ -30,4 +30,4 @@ func Physics_Update(_delta: float) -> void:
 		else:
 			robot.velocity.x = move_toward(robot.velocity.x, 0, SPEED)
 			robot.move_and_slide()
-			Transitioned.emit(self, "robotidle")
+			Transitioned.emit(state_name(), "robotidle")

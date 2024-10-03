@@ -1,6 +1,7 @@
 extends Node
 class_name Robot_State
 
+@warning_ignore("unused_signal")
 signal Transitioned
 
 func Enter() -> void:

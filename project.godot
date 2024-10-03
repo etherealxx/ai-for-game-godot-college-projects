@@ -72,3 +72,7 @@ move_right={
 
 3d_physics/layer_1="Player"
 3d_physics/layer_2="Enemy"
+
+[rendering]
+
+renderer/rendering_method="mobile"

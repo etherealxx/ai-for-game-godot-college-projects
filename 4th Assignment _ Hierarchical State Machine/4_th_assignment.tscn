@@ -74,9 +74,10 @@ font_size = 30
 
 [node name="4thAssignment" type="Node2D"]
 
-[node name="HFSM_Robot" type="CharacterBody2D" parent="." groups=["robot"]]
+[node name="HFSM_Robot" type="CharacterBody2D" parent="." node_paths=PackedStringArray("label_to_show_state") groups=["robot"]]
 position = Vector2(558, 278)
 script = ExtResource("1_qsyti")
+label_to_show_state = NodePath("../SceneTitle/StateLabel")
 initial_state = ExtResource("2_q1hye")
 possible_state = Array[ExtResource("2_q0ikj")]([ExtResource("2_q1hye"), ExtResource("2_b6ejv")])
 
@@ -99,13 +100,13 @@ position = Vector2(560.5, 594)
 shape = SubResource("RectangleShape2D_eub84")
 
 [node name="SceneTitle" parent="." instance=ExtResource("8_jd5xi")]
-label_text = "Fourth (4th) Assignment : Finite State Machine"
+label_text = "Fourth (4th) Assignment : Hierarchical Finite State Machine"
 
 [node name="Control" parent="SceneTitle" index="0"]
 metadata/_edit_lock_ = true
 
 [node name="Label" parent="SceneTitle/Control" index="0"]
-text = "Fourth (4th) Assignment : Finite State Machine"
+text = "Fourth (4th) Assignment : Hierarchical Finite State Machine"
 
 [node name="Button" parent="SceneTitle" index="1"]
 metadata/_edit_lock_ = true

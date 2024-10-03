@@ -18,8 +18,8 @@ func Physics_Update(delta: float) -> void:
 		robot.move_and_slide()
 		#
 		if Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_right"):
-			robot.velocity.x += 980.0 * delta
-			#Transitioned.emit(self, "robotmoving")
+			#robot.velocity.x += 980.0 * delta
+			Transitioned.emit(state_name(), "robotmoving")
 		pass
 
 func special_print():
