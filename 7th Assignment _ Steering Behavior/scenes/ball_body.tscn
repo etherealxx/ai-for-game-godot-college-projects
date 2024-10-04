@@ -1,0 +1,21 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2vixocy0jbfn"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_74ee7"]
+radius = 0.3
+height = 0.6
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_y8ftu"]
+radius = 0.306287
+
+[node name="BallBody" type="StaticBody3D"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.17122, 0, 0.317878)
+metadata/_edit_group_ = true
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.345714, 0)
+mesh = SubResource("SphereMesh_74ee7")
+skeleton = NodePath("../..")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.34288, 0)
+shape = SubResource("SphereShape3D_y8ftu")

@@ -26,6 +26,7 @@ config/icon="res://icon.svg"
 
 BeehaveGlobalMetrics="*res://addons/beehave/metrics/beehave_global_metrics.gd"
 BeehaveGlobalDebugger="*res://addons/beehave/debug/global_debugger.gd"
+DebugDraw="*res://addons/zylann.debug_draw/debug_draw.gd"
 
 [display]
 
@@ -43,7 +44,8 @@ folder_colors={
 "res://3rd Assignment _ Finite State Machine/": "blue",
 "res://4th Assignment _ Hierarchical State Machine/": "blue",
 "res://5th Assignment _ Probability/": "blue",
-"res://6th Assignment _ Behavior Tree/": "blue"
+"res://6th Assignment _ Behavior Tree/": "blue",
+"res://7th Assignment _ Steering Behavior/": "blue"
 }
 
 [input]
