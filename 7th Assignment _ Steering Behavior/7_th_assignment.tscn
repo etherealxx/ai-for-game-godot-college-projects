@@ -25,6 +25,7 @@ size = Vector3(0.51, 0.51, 0.51)
 
 [node name="SceneTitle" parent="." instance=ExtResource("1_dwgq6")]
 label_text = "Seventh (7th) Assignment : Steering Behavior"
+display_fps = true
 
 [node name="FloorMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(3.04548, 0, 0, 0, 1.59533, 0, 0, 0, 3.04548, 0, -0.104993, -1.94945)

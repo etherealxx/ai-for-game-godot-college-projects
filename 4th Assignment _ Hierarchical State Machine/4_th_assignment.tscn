@@ -114,6 +114,7 @@ shape = SubResource("RectangleShape2D_eub84")
 
 [node name="SceneTitle" parent="." instance=ExtResource("8_jd5xi")]
 label_text = "Fourth (4th) Assignment : Hierarchical Finite State Machine"
+display_fps = null
 
 [node name="Control" parent="SceneTitle" index="0"]
 metadata/_edit_lock_ = true

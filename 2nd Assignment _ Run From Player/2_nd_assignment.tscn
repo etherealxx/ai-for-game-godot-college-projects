@@ -334,6 +334,7 @@ current = true
 
 [node name="SceneTitle" parent="." instance=ExtResource("2_f8dqm")]
 label_text = "Second (2nd) Assignment : Run From Player"
+display_fps = true
 
 [node name="Label" parent="SceneTitle/Control" index="0"]
 text = "Second (2nd) Assignment : Run From Player"

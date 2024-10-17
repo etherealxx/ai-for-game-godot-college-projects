@@ -287,3 +287,4 @@ transform = Transform3D(-0.863712, 0, -0.503985, 0, 1, 0, 0.503985, 0, -0.863712
 
 [node name="SceneTitle" parent="." instance=ExtResource("3_x46fu")]
 label_text = "First (1st) Assignment : SimpleAI"
+display_fps = true

@@ -8,7 +8,7 @@
 
 extends CanvasLayer
 
-const DebugDrawFont = preload("res://addons/zylann.debug_draw/Hack-Regular.ttf")
+var DebugDrawFont : FontFile = load("res://addons/zylann.debug_draw/Hack-Regular.ttf")
 
 ## @brief How many frames HUD text lines remain shown after being invoked.
 const TEXT_LINGER_FRAMES = 5
