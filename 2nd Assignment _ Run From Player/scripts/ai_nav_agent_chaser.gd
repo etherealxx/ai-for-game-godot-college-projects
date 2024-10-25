@@ -3,7 +3,7 @@ extends CharacterBody3D
 @export var target_character : NodePath
 @onready var navagent : NavigationAgent3D = $NavigationAgent3D
 
-var nav_speed := 0.4
+@export var nav_speed := 0.4
 var nav_accel := 10.0
 var target_character_position : Vector3
 var map_ready = false
@@ -70,22 +70,23 @@ func get_distance_to(body : Node) -> float:
 	return self.global_position.distance_to(body.global_position)
 
 func _on_target_locking_timer_timeout() -> void:
-	print("detecting new target")
-	var bodies : Array = $Area3D.get_overlapping_bodies()
-	
-	var closest_body # Node
-	if not bodies.is_empty():
-		for body : Node in bodies:
-			if body.is_in_group("runner") and body != get_node(target_character):
-				#Vector3.distance_to()
-				@warning_ignore("unassigned_variable")
-				if closest_body:
+	if has_node("Area3D"):
+		print("detecting new target")
+		var bodies : Array = $Area3D.get_overlapping_bodies()
+		
+		var closest_body # Node
+		if not bodies.is_empty():
+			for body : Node in bodies:
+				if body.is_in_group("runner") and body != get_node(target_character):
+					#Vector3.distance_to()
 					@warning_ignore("unassigned_variable")
-					if get_distance_to(body) < get_distance_to(closest_body): # the newly detected body is closer
+					if closest_body:
+						@warning_ignore("unassigned_variable")
+						if get_distance_to(body) < get_distance_to(closest_body): # the newly detected body is closer
+							closest_body = body
+					else:
 						closest_body = body
-				else:
-					closest_body = body
-		if closest_body and get_distance_to(closest_body) < 0.7: # maximum distance for switching
-			target_character = closest_body.get_path()
-			print("target switched")
-	$TargetLockingTimer.start(randf_range(4.5, 7.0))
+			if closest_body and get_distance_to(closest_body) < 0.7: # maximum distance for switching
+				target_character = closest_body.get_path()
+				print("target switched")
+		$TargetLockingTimer.start(randf_range(4.5, 7.0))

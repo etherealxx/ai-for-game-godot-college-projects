@@ -1,8 +1,9 @@
-[gd_scene load_steps=25 format=4 uid="uid://bjafuvumhtks"]
+[gd_scene load_steps=26 format=4 uid="uid://bjafuvumhtks"]
 
 [ext_resource type="PackedScene" uid="uid://dgr6e2hsbumgl" path="res://otherassets/GDQuest 3D WorldEnvi/GDQuest 3D WorldEnvi.tscn" id="1_hf4xs"]
 [ext_resource type="PackedScene" uid="uid://cmvvu6ki0eh20" path="res://scenes/scene_title.tscn" id="2_f8dqm"]
 [ext_resource type="PackedScene" uid="uid://cm0ult4wy7j6m" path="res://2nd Assignment _ Run From Player/scenes/ai_nav_agent_chaser.tscn" id="2_fa355"]
+[ext_resource type="Script" path="res://2nd Assignment _ Run From Player/scripts/runner_agents_horde.gd" id="3_670y1"]
 [ext_resource type="PackedScene" uid="uid://c5egukp68yeuu" path="res://2nd Assignment _ Run From Player/scenes/ai_nav_agent_runner.tscn" id="4_i6pxb"]
 
 [sub_resource type="Shader" id="Shader_efsoh"]
@@ -275,54 +276,44 @@ shape = SubResource("ConcavePolygonShape3D_l5lxp")
 target_character = NodePath("../RunnerAgents/AINavAgent_Runner")
 
 [node name="RunnerAgents" type="Node3D" parent="."]
+script = ExtResource("3_670y1")
+target_chaser_character = NodePath("../AINavAgent_Chaser")
 
 [node name="AINavAgent_Runner" parent="RunnerAgents" instance=ExtResource("4_i6pxb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.539689, 0, 0.462132)
-chaser_character = NodePath("../../AINavAgent_Chaser")
 
 [node name="AINavAgent_Runner2" parent="RunnerAgents" instance=ExtResource("4_i6pxb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.539689, 0, -0.846987)
-chaser_character = NodePath("../../AINavAgent_Chaser")
 
 [node name="AINavAgent_Runner3" parent="RunnerAgents" instance=ExtResource("4_i6pxb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.386598, 0, -0.846987)
-chaser_character = NodePath("../../AINavAgent_Chaser")
 
 [node name="AINavAgent_Runner4" parent="RunnerAgents" instance=ExtResource("4_i6pxb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.386598, 0, 0.567808)
-chaser_character = NodePath("../../AINavAgent_Chaser")
 
 [node name="AINavAgent_Runner7" parent="RunnerAgents" instance=ExtResource("4_i6pxb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.75061, 0, 1.91793)
-chaser_character = NodePath("../../AINavAgent_Chaser")
 
 [node name="AINavAgent_Runner8" parent="RunnerAgents" instance=ExtResource("4_i6pxb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1595, 0, 0.903707)
-chaser_character = NodePath("../../AINavAgent_Chaser")
 
 [node name="AINavAgent_Runner9" parent="RunnerAgents" instance=ExtResource("4_i6pxb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.1595, 0, -1.3411)
-chaser_character = NodePath("../../AINavAgent_Chaser")
 
 [node name="AINavAgent_Runner10" parent="RunnerAgents" instance=ExtResource("4_i6pxb")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.655859, 0, -2.05423)
-chaser_character = NodePath("../../AINavAgent_Chaser")
 
 [node name="AINavAgent_Runner5" parent="RunnerAgents" instance=ExtResource("4_i6pxb")]
 transform = Transform3D(0.267726, 0, -0.963495, 0, 1, 0, 0.963495, 0, 0.267726, 2.42168, 0, 2.18957)
-chaser_character = NodePath("../../AINavAgent_Chaser")
 
 [node name="AINavAgent_Runner6" parent="RunnerAgents" instance=ExtResource("4_i6pxb")]
 transform = Transform3D(0.267726, 0, -0.963495, 0, 1, 0, 0.963495, 0, 0.267726, 2.42243, 0, 0.530929)
-chaser_character = NodePath("../../AINavAgent_Chaser")
 
 [node name="AINavAgent_Runner11" parent="RunnerAgents" instance=ExtResource("4_i6pxb")]
 transform = Transform3D(0.267726, 0, -0.963495, 0, 1, 0, 0.963495, 0, 0.267726, 1.88349, 0, -0.497372)
-chaser_character = NodePath("../../AINavAgent_Chaser")
 
 [node name="AINavAgent_Runner12" parent="RunnerAgents" instance=ExtResource("4_i6pxb")]
 transform = Transform3D(0.267726, 0, -0.963495, 0, 1, 0, 0.963495, 0, 0.267726, 1.88349, 0, -2.34241)
-chaser_character = NodePath("../../AINavAgent_Chaser")
 
 [node name="Camera3D" type="Camera3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.0879855, 3.39122, -0.00397633)
