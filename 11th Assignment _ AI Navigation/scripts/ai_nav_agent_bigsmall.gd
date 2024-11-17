@@ -35,12 +35,6 @@ func actor_setup():
 		print(str(target_character_position))
 
 func _physics_process(delta):
-	#var current_location = global_transform.origin
-	#var next_location = navagent.get_next_path_position()
-	#var new_velocity = (next_location - current_location).normalized() * nav_speed
-	#
-	#velocity = new_velocity * 0.25
-	#move_and_slide()
 	if target_character_position and map_ready:
 		var direction := Vector3()
 		
@@ -57,7 +51,9 @@ func _physics_process(delta):
 		
 		move_and_slide()
 		
-		look_at(target_character_position, Vector3.UP, true)
+		#look_at(target_character_position, Vector3.UP, true)
+		if get_distance_to(get_node(target_character)) > 5.0:
+			look_at(global_transform.origin + direction, Vector3.UP, true)
 
 func _on_update_navtarget_timer_timeout() -> void:
 	if target_character:
@@ -68,25 +64,3 @@ func _on_update_navtarget_timer_timeout() -> void:
 
 func get_distance_to(body : Node) -> float:
 	return self.global_position.distance_to(body.global_position)
-
-func _on_target_locking_timer_timeout() -> void:
-	print("detecting new target")
-	if has_node("Area3D"):
-		var bodies : Array = $Area3D.get_overlapping_bodies()
-	
-		var closest_body # Node
-		if not bodies.is_empty():
-			for body : Node in bodies:
-				if body.is_in_group("runner") and body != get_node(target_character):
-					#Vector3.distance_to()
-					@warning_ignore("unassigned_variable")
-					if closest_body:
-						@warning_ignore("unassigned_variable")
-						if get_distance_to(body) < get_distance_to(closest_body): # the newly detected body is closer
-							closest_body = body
-					else:
-						closest_body = body
-			if closest_body and get_distance_to(closest_body) < 0.7: # maximum distance for switching
-				target_character = closest_body.get_path()
-				print("target switched")
-		$TargetLockingTimer.start(randf_range(4.5, 7.0))
