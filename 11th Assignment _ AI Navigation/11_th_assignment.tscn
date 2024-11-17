@@ -1,9 +1,9 @@
-[gd_scene load_steps=30 format=4 uid="uid://b6r0y8uwu3q8n"]
+[gd_scene load_steps=29 format=4 uid="uid://b6r0y8uwu3q8n"]
 
 [ext_resource type="PackedScene" uid="uid://cmvvu6ki0eh20" path="res://scenes/scene_title.tscn" id="1_7xhij"]
-[ext_resource type="Script" path="res://11th Assignment _ AI Navigation/11_th_assignment.gd" id="1_scxqn"]
+[ext_resource type="Script" path="res://11th Assignment _ AI Navigation/scripts/11_th_assignment.gd" id="1_scxqn"]
 [ext_resource type="PackedScene" uid="uid://dgr6e2hsbumgl" path="res://otherassets/GDQuest 3D WorldEnvi/GDQuest 3D WorldEnvi.tscn" id="2_ysw6n"]
-[ext_resource type="Script" path="res://2nd Assignment _ Run From Player/scripts/ai_nav_agent_chaser.gd" id="3_3ycvg"]
+[ext_resource type="Script" path="res://11th Assignment _ AI Navigation/scripts/ai_nav_agent_bigsmall.gd" id="4_sv5ou"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_53daj"]
 albedo_color = Color(0.2484, 0.2484, 0.2484, 1)
@@ -107,13 +107,6 @@ _surfaces = [{
 "vertex_data": PackedByteArray("AFkJQABs6D4AYC4+AFkJQABs6D4AYC6+AFkJQABs6L4AYC6+AFkJQABs6L4AYC6+AFkJQABs6L4AYC4+AFkJQABs6D4AYC4+AFkJQABs6D4AYC4+AFkJwABs6D4AYC4+AFkJwABs6D4AYC6+AFkJwABs6D4AYC6+AFkJQABs6D4AYC6+AFkJQABs6D4AYC4+AFkJQABs6D4AYC4+AFkJQABs6L4AYC4+AFkJwABs6L4AYC4+AFkJwABs6L4AYC4+AFkJwABs6D4AYC4+AFkJQABs6D4AYC4+AFkJwABs6D4AYC6+AFkJwABs6D4AYC4+AFkJwABs6L4AYC4+AFkJwABs6L4AYC4+AFkJwABs6L4AYC6+AFkJwABs6D4AYC6+AFkJwABs6L4AYC4+AFkJQABs6L4AYC4+AFkJQABs6L4AYC6+AFkJQABs6L4AYC6+AFkJwABs6L4AYC6+AFkJwABs6L4AYC4+AFkJQABs6L4AYC6+AFkJQABs6D4AYC6+AFkJwABs6D4AYC6+AFkJwABs6D4AYC6+AFkJwABs6L4AYC6+AFkJQABs6L4AYC6+////f/9//n////9//3/+f////3//f/5/////f/9//n////9//3/+f////3//f/5//3//////AAD/f/////8AAP9//////wAA/3//////AAD/f/////8AAP9//////wAA/3//fwAA/z//f/9/AAD/P/9//38AAP8//3//fwAA/z//f/9/AAD/P/9//38AAP8/AAD/f/9//n8AAP9//3/+fwAA/3//f/5/AAD/f/9//n8AAP9//3/+fwAA/3//f/5//38AAP//AAD/fwAA//8AAP9/AAD//wAA/38AAP//AAD/fwAA//8AAP9/AAD//wAA/////wAA/z//////AAD/P/////8AAP8//////wAA/z//////AAD/P/////8AAP8/")
 }]
 
-[sub_resource type="Curve3D" id="Curve3D_4p0uk"]
-_data = {
-"points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5.56, 0, 0, 0, 0, 0, 0, 0, 0, 7.865, 0, -2.085, 0, 0, 0, 0, 0, 0, 5.165, 0, -3.29, 0, 0, 0, 0, 0, 0, 0, 0, -3.5, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-"tilts": PackedFloat32Array(0, 0, 0, 0, 0, 0)
-}
-point_count = 6
-
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sddo1"]
 albedo_color = Color(1, 0.35, 0.35, 1)
 
@@ -134,19 +127,19 @@ height = 0.064
 radius = 0.0807554
 height = 0.38227
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_leot6"]
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_rw8eo"]
 material = SubResource("StandardMaterial3D_sddo1")
-radius = 0.081
-height = 0.4
+radius = 0.189
+height = 0.825
 
-[sub_resource type="CapsuleMesh" id="CapsuleMesh_230va"]
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_u0mr2"]
 material = SubResource("StandardMaterial3D_442t8")
-radius = 0.01
-height = 0.064
+radius = 0.024
+height = 0.158
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_qusxg"]
-radius = 0.0807554
-height = 0.38227
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_o464w"]
+radius = 0.197103
+height = 0.780041
 
 [node name="11thAssignment" type="Node3D"]
 script = ExtResource("1_scxqn")
@@ -183,6 +176,12 @@ layout_mode = 2
 focus_mode = 0
 theme_override_font_sizes/font_size = 20
 text = "Gate Closed"
+
+[node name="GateLiftedToggle" type="CheckButton" parent="SceneTitle/Control/ToggleVBox"]
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 20
+text = "Gate Lifted"
 
 [node name="ChangeCameraToggle" type="CheckButton" parent="SceneTitle/Control/ToggleVBox"]
 layout_mode = 2
@@ -282,15 +281,11 @@ current = true
 fov = 87.6
 
 [node name="Camera3D2" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.146, 4.581, -0.78226)
-
-[node name="Path3D" type="Path3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.255, 0)
-curve = SubResource("Curve3D_4p0uk")
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.146, 4.97244, -1.16525)
 
 [node name="AINavAgent_Small" type="CharacterBody3D" parent="." groups=["chaser"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.04161, 0, 0.731947)
-script = ExtResource("3_3ycvg")
+script = ExtResource("4_sv5ou")
 target_character = NodePath("../FinishSpot")
 nav_speed = 0.8
 
@@ -314,42 +309,31 @@ process_callback = 0
 wait_time = 0.5
 autostart = true
 
-[node name="TargetLockingTimer" type="Timer" parent="AINavAgent_Small"]
-process_callback = 0
-wait_time = 5.0
-one_shot = true
-autostart = true
-
 [node name="AINavAgent_Big" type="CharacterBody3D" parent="." groups=["chaser"]]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.04161, 0, 1.28274)
-script = ExtResource("3_3ycvg")
+script = ExtResource("4_sv5ou")
 target_character = NodePath("../FinishSpot")
 nav_speed = 0.8
 
 [node name="CapsuleBody" type="MeshInstance3D" parent="AINavAgent_Big"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.244241, 0)
-mesh = SubResource("CapsuleMesh_leot6")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.441214, 0)
+mesh = SubResource("CapsuleMesh_rw8eo")
 
 [node name="Eye" type="MeshInstance3D" parent="AINavAgent_Big"]
-transform = Transform3D(-5.92727e-08, 1.356, -5.92727e-08, 0, -5.92727e-08, -1.356, -1.356, -5.92727e-08, 2.5909e-15, 0, 0.359675, 0.0805967)
-mesh = SubResource("CapsuleMesh_230va")
+transform = Transform3D(-5.92727e-08, 1.356, -5.92727e-08, 0, -5.92727e-08, -1.356, -1.356, -5.92727e-08, 2.5909e-15, 0, 0.58283, 0.187168)
+mesh = SubResource("CapsuleMesh_u0mr2")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="AINavAgent_Big"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23926, 0)
-shape = SubResource("CapsuleShape3D_qusxg")
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0612416, 0.433052, 0)
+shape = SubResource("CapsuleShape3D_o464w")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="AINavAgent_Big"]
 path_postprocessing = 1
+avoidance_enabled = true
 
 [node name="UpdateNavtargetTimer" type="Timer" parent="AINavAgent_Big"]
 process_callback = 0
 wait_time = 0.5
-autostart = true
-
-[node name="TargetLockingTimer" type="Timer" parent="AINavAgent_Big"]
-process_callback = 0
-wait_time = 5.0
-one_shot = true
 autostart = true
 
 [node name="FinishSpot" type="Marker3D" parent="."]
@@ -357,10 +341,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.50345, 0.0608556, 0.945363
 
 [connection signal="pressed" from="SceneTitle/Control/ToggleVBox/ResetSceneBtn" to="." method="_on_reset_scene_btn_pressed"]
 [connection signal="toggled" from="SceneTitle/Control/ToggleVBox/GateClosedToggle" to="." method="_on_gate_closed_toggle_toggled"]
+[connection signal="toggled" from="SceneTitle/Control/ToggleVBox/GateLiftedToggle" to="." method="_on_gate_lifted_toggle_toggled"]
 [connection signal="toggled" from="SceneTitle/Control/ToggleVBox/ChangeCameraToggle" to="." method="_on_change_camera_toggle_toggled"]
 [connection signal="timeout" from="AINavAgent_Small/UpdateNavtargetTimer" to="AINavAgent_Small" method="_on_update_navtarget_timer_timeout"]
-[connection signal="timeout" from="AINavAgent_Small/TargetLockingTimer" to="AINavAgent_Small" method="_on_target_locking_timer_timeout"]
 [connection signal="timeout" from="AINavAgent_Big/UpdateNavtargetTimer" to="AINavAgent_Big" method="_on_update_navtarget_timer_timeout"]
-[connection signal="timeout" from="AINavAgent_Big/TargetLockingTimer" to="AINavAgent_Big" method="_on_target_locking_timer_timeout"]
 
 [editable path="SceneTitle"]
