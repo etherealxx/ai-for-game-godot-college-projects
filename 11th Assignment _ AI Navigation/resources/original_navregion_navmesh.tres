@@ -1,0 +1,9 @@
+[gd_resource type="NavigationMesh" format=3 uid="uid://cyekhy1ljn407"]
+
+[resource]
+vertices = PackedVector3Array(-3.5565, 0.235474, 0.894037, -3.8565, 0.235474, 0.694037, -3.8565, 0.235474, 1.39404, -3.5565, 0.235474, 1.19404, -1.0565, 0.235474, -2.70596, -2.5565, 0.235474, -3.80596, -2.5565, 0.235474, 0.494037, -1.0565, 0.235474, 0.494037, -0.356502, 0.235474, 1.19404, -0.356502, 0.235474, 0.894037, -0.856502, 0.235474, 0.794037, -2.9565, 0.235474, 0.894037, -0.856502, 0.235474, -3.00596, -0.356502, 0.235474, -3.10596, -0.356502, 0.235474, -3.80596, 0.143498, 0.235474, 0.794037, 3.1435, 0.235474, 1.29404, 2.3435, 0.235474, 0.894037, 3.1435, 0.235474, 0.794037, 0.143498, 0.235474, -3.00596, 0.343498, 0.235474, -2.70596, 1.9435, 0.235474, -3.80596, 1.9435, 0.235474, 0.494037, 0.343498, 0.235474, 0.494037)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(7, 6, 4), PackedInt32Array(4, 6, 5), PackedInt32Array(9, 8, 10), PackedInt32Array(10, 8, 11), PackedInt32Array(11, 8, 3), PackedInt32Array(3, 0, 11), PackedInt32Array(14, 13, 12), PackedInt32Array(12, 4, 14), PackedInt32Array(14, 4, 5), PackedInt32Array(7, 10, 6), PackedInt32Array(6, 10, 11), PackedInt32Array(9, 15, 8), PackedInt32Array(8, 15, 17), PackedInt32Array(8, 17, 16), PackedInt32Array(17, 18, 16), PackedInt32Array(13, 14, 19), PackedInt32Array(19, 14, 20), PackedInt32Array(20, 14, 21), PackedInt32Array(23, 22, 15), PackedInt32Array(15, 22, 17), PackedInt32Array(23, 20, 22), PackedInt32Array(22, 20, 21)]
+cell_size = 0.1
+cell_height = 0.1
+border_size = 0.3
+agent_height = 0.4

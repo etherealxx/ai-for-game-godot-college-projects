@@ -6,7 +6,9 @@ extends CharacterBody3D
 @export var nav_speed := 0.4
 var nav_accel := 10.0
 var target_character_position : Vector3
-var map_ready = false
+var map_ready := false
+var new_map_ready := false
+#var path_ready := false
 
 func _ready() -> void:
 	navagent.target_desired_distance = 0.5
@@ -14,7 +16,11 @@ func _ready() -> void:
 		target_character_position = get_node(target_character).get_global_position()
 	NavigationServer3D.map_changed.connect(_on_map_ready)
 	call_deferred("actor_setup")
-	
+
+func set_nav_map(navmap : RID):
+	navagent.set_navigation_map(navmap)
+	new_map_ready = true
+
 func _on_map_ready(_rid):
 	map_ready = true
 
@@ -35,7 +41,7 @@ func actor_setup():
 		print(str(target_character_position))
 
 func _physics_process(delta):
-	if target_character_position and map_ready:
+	if target_character_position and map_ready and new_map_ready:
 		var direction := Vector3()
 		
 		direction = navagent.get_next_path_position() - self.global_position
@@ -52,7 +58,8 @@ func _physics_process(delta):
 		move_and_slide()
 		
 		#look_at(target_character_position, Vector3.UP, true)
-		if get_distance_to(get_node(target_character)) > 5.0:
+		#if get_distance_to(get_node(target_character)) > 5.0:
+		if navagent.distance_to_target() > 5.0:
 			look_at(global_transform.origin + direction, Vector3.UP, true)
 
 func _on_update_navtarget_timer_timeout() -> void:
