@@ -50,10 +50,6 @@ folder_colors={
 "res://8th Assignment _ Steering Behavior 2/": "blue"
 }
 
-[filesystem]
-
-import/blender/enabled=false
-
 [input]
 
 move_up={

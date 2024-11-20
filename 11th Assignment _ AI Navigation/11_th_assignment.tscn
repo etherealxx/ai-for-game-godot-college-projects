@@ -1,8 +1,9 @@
-[gd_scene load_steps=28 format=4 uid="uid://b6r0y8uwu3q8n"]
+[gd_scene load_steps=29 format=4 uid="uid://b6r0y8uwu3q8n"]
 
 [ext_resource type="PackedScene" uid="uid://cmvvu6ki0eh20" path="res://scenes/scene_title.tscn" id="1_7xhij"]
 [ext_resource type="Script" path="res://11th Assignment _ AI Navigation/scripts/11_th_assignment.gd" id="1_scxqn"]
 [ext_resource type="PackedScene" uid="uid://dgr6e2hsbumgl" path="res://otherassets/GDQuest 3D WorldEnvi/GDQuest 3D WorldEnvi.tscn" id="2_ysw6n"]
+[ext_resource type="ButtonGroup" uid="uid://1xrvevia6kh2" path="res://11th Assignment _ AI Navigation/resources/checkbox_buttongroup.tres" id="3_sdqww"]
 [ext_resource type="Script" path="res://11th Assignment _ AI Navigation/scripts/ai_nav_agent_bigsmall.gd" id="4_sv5ou"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_53daj"]
@@ -175,11 +176,25 @@ focus_mode = 0
 theme_override_font_sizes/font_size = 20
 text = "Gate Lifted"
 
-[node name="ChangeCameraToggle" type="CheckButton" parent="SceneTitle/Control/ToggleVBox"]
+[node name="CameraCheckboxes" type="HBoxContainer" parent="SceneTitle/Control/ToggleVBox"]
 layout_mode = 2
-focus_mode = 0
-theme_override_font_sizes/font_size = 20
-text = "Change Camera"
+
+[node name="CheckBox" type="CheckBox" parent="SceneTitle/Control/ToggleVBox/CameraCheckboxes"]
+unique_name_in_owner = true
+layout_mode = 2
+button_pressed = true
+button_group = ExtResource("3_sdqww")
+text = "Camera1"
+
+[node name="CheckBox2" type="CheckBox" parent="SceneTitle/Control/ToggleVBox/CameraCheckboxes"]
+layout_mode = 2
+button_group = ExtResource("3_sdqww")
+text = "Camera2"
+
+[node name="CheckBox3" type="CheckBox" parent="SceneTitle/Control/ToggleVBox/CameraCheckboxes"]
+layout_mode = 2
+button_group = ExtResource("3_sdqww")
+text = "Camera3"
 
 [node name="FloorMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(3.04548, 0, 0, 0, 1.59533, 0, 0, 0, 3.04548, 0, -0.104993, -1.05845)
@@ -270,17 +285,19 @@ light_energy = 12.469
 spot_range = 15.4275
 spot_angle = 69.6191
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(0.950527, 0.250651, -0.183503, 0.0538999, 0.448682, 0.892064, 0.305931, -0.857822, 0.412974, -1.32484, 2.62146, 1.47508)
+[node name="Cameras" type="Node3D" parent="."]
+unique_name_in_owner = true
+
+[node name="Camera1" type="Camera3D" parent="Cameras"]
+transform = Transform3D(0.950527, 0.250651, -0.183502, 0.0538999, 0.448682, 0.892065, 0.305931, -0.857822, 0.412974, -1.32484, 2.62146, 1.47508)
 current = true
 fov = 87.6
 
-[node name="Camera3D2" type="Camera3D" parent="."]
+[node name="Camera2" type="Camera3D" parent="Cameras"]
 transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.146, 4.97244, -1.16525)
 
-[node name="Camera3D3" type="Camera3D" parent="."]
-transform = Transform3D(0.158158, -0.44674, 0.880573, 0, 0.891797, 0.452435, -0.987414, -0.0715562, 0.141045, 3.5135, 1.14795, 1.47508)
-current = true
+[node name="Camera3" type="Camera3D" parent="Cameras"]
+transform = Transform3D(0.158158, -0.44674, 0.880573, 0, 0.891798, 0.452435, -0.987414, -0.0715562, 0.141045, 3.5135, 1.14795, 1.47508)
 fov = 87.6
 
 [node name="AINavAgent_Small" type="CharacterBody3D" parent="." groups=["chaser"]]
@@ -351,7 +368,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.50345, 0.0608556, 0.945363
 [connection signal="pressed" from="SceneTitle/Control/ToggleVBox/ResetSceneBtn" to="." method="_on_reset_scene_btn_pressed"]
 [connection signal="toggled" from="SceneTitle/Control/ToggleVBox/GateClosedToggle" to="." method="_on_gate_closed_toggle_toggled"]
 [connection signal="toggled" from="SceneTitle/Control/ToggleVBox/GateLiftedToggle" to="." method="_on_gate_lifted_toggle_toggled"]
-[connection signal="toggled" from="SceneTitle/Control/ToggleVBox/ChangeCameraToggle" to="." method="_on_change_camera_toggle_toggled"]
 [connection signal="timeout" from="AINavAgent_Small/UpdateNavtargetTimer" to="AINavAgent_Small" method="_on_update_navtarget_timer_timeout"]
 [connection signal="timeout" from="AINavAgent_Big/UpdateNavtargetTimer" to="AINavAgent_Big" method="_on_update_navtarget_timer_timeout"]
 
