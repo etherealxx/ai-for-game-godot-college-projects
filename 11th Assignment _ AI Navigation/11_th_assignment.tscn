@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=4 uid="uid://b6r0y8uwu3q8n"]
+[gd_scene load_steps=31 format=4 uid="uid://b6r0y8uwu3q8n"]
 
 [ext_resource type="PackedScene" uid="uid://cmvvu6ki0eh20" path="res://scenes/scene_title.tscn" id="1_7xhij"]
 [ext_resource type="Script" path="res://11th Assignment _ AI Navigation/scripts/11_th_assignment.gd" id="1_scxqn"]
@@ -100,6 +100,20 @@ _surfaces = [{
 "vertex_data": PackedByteArray("AFkJQABs6D4AYC4+AFkJQABs6D4AYC6+AFkJQABs6L4AYC6+AFkJQABs6L4AYC6+AFkJQABs6L4AYC4+AFkJQABs6D4AYC4+AFkJQABs6D4AYC4+AFkJwABs6D4AYC4+AFkJwABs6D4AYC6+AFkJwABs6D4AYC6+AFkJQABs6D4AYC6+AFkJQABs6D4AYC4+AFkJQABs6D4AYC4+AFkJQABs6L4AYC4+AFkJwABs6L4AYC4+AFkJwABs6L4AYC4+AFkJwABs6D4AYC4+AFkJQABs6D4AYC4+AFkJwABs6D4AYC6+AFkJwABs6D4AYC4+AFkJwABs6L4AYC4+AFkJwABs6L4AYC4+AFkJwABs6L4AYC6+AFkJwABs6D4AYC6+AFkJwABs6L4AYC4+AFkJQABs6L4AYC4+AFkJQABs6L4AYC6+AFkJQABs6L4AYC6+AFkJwABs6L4AYC6+AFkJwABs6L4AYC4+AFkJQABs6L4AYC6+AFkJQABs6D4AYC6+AFkJwABs6D4AYC6+AFkJwABs6D4AYC6+AFkJwABs6L4AYC6+AFkJQABs6L4AYC6+////f/9//n////9//3/+f////3//f/5/////f/9//n////9//3/+f////3//f/5//3//////AAD/f/////8AAP9//////wAA/3//////AAD/f/////8AAP9//////wAA/3//fwAA/z//f/9/AAD/P/9//38AAP8//3//fwAA/z//f/9/AAD/P/9//38AAP8/AAD/f/9//n8AAP9//3/+fwAA/3//f/5/AAD/f/9//n8AAP9//3/+fwAA/3//f/5//38AAP//AAD/fwAA//8AAP9/AAD//wAA/38AAP//AAD/fwAA//8AAP9/AAD//wAA/////wAA/z//////AAD/P/////8AAP8//////wAA/z//////AAD/P/////8AAP8/")
 }]
 
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_pixp5"]
+data = PackedVector3Array(0.1614, 0.0386, 0.7018, 0.1614, 0.0386, -0.7018, 0.1614, -0.0386, -0.7018, 0.1614, -0.0386, -0.7018, 0.1614, -0.0386, 0.7018, 0.1614, 0.0386, 0.7018, 0.1614, 0.0386, 0.7018, -0.1614, 0.0386, 0.7018, -0.1614, 0.0386, -0.7018, -0.1614, 0.0386, -0.7018, 0.1614, 0.0386, -0.7018, 0.1614, 0.0386, 0.7018, 0.1614, 0.0386, 0.7018, 0.1614, -0.0386, 0.7018, -0.1614, -0.0386, 0.7018, -0.1614, -0.0386, 0.7018, -0.1614, 0.0386, 0.7018, 0.1614, 0.0386, 0.7018, -0.1614, 0.0386, -0.7018, -0.1614, 0.0386, 0.7018, -0.1614, -0.0386, 0.7018, -0.1614, -0.0386, 0.7018, -0.1614, -0.0386, -0.7018, -0.1614, 0.0386, -0.7018, -0.1614, -0.0386, 0.7018, 0.1614, -0.0386, 0.7018, 0.1614, -0.0386, -0.7018, 0.1614, -0.0386, -0.7018, -0.1614, -0.0386, -0.7018, -0.1614, -0.0386, 0.7018, 0.1614, -0.0386, -0.7018, 0.1614, 0.0386, -0.7018, -0.1614, 0.0386, -0.7018, -0.1614, 0.0386, -0.7018, -0.1614, -0.0386, -0.7018, 0.1614, -0.0386, -0.7018)
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_yya78"]
+_surfaces = [{
+"aabb": AABB(-0.161377, -0.0386353, -0.701843, 0.322754, 0.0772705, 1.40369),
+"attribute_data": PackedByteArray("AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAA"),
+"format": 34359738391,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 36,
+"vertex_data": PackedByteArray("AEAlPgBAHj0ArDM/AEAlPgBAHj0ArDO/AEAlPgBAHr0ArDO/AEAlPgBAHr0ArDO/AEAlPgBAHr0ArDM/AEAlPgBAHj0ArDM/AEAlPgBAHj0ArDM/AEAlvgBAHj0ArDM/AEAlvgBAHj0ArDO/AEAlvgBAHj0ArDO/AEAlPgBAHj0ArDO/AEAlPgBAHj0ArDM/AEAlPgBAHj0ArDM/AEAlPgBAHr0ArDM/AEAlvgBAHr0ArDM/AEAlvgBAHr0ArDM/AEAlvgBAHj0ArDM/AEAlPgBAHj0ArDM/AEAlvgBAHj0ArDO/AEAlvgBAHj0ArDM/AEAlvgBAHr0ArDM/AEAlvgBAHr0ArDM/AEAlvgBAHr0ArDO/AEAlvgBAHj0ArDO/AEAlvgBAHr0ArDM/AEAlPgBAHr0ArDM/AEAlPgBAHr0ArDO/AEAlPgBAHr0ArDO/AEAlvgBAHr0ArDO/AEAlvgBAHr0ArDM/AEAlPgBAHr0ArDO/AEAlPgBAHj0ArDO/AEAlvgBAHj0ArDO/AEAlvgBAHj0ArDO/AEAlvgBAHr0ArDO/AEAlPgBAHr0ArDO/////f/9//n////9//3/+f////3//f/5/////f/9//n////9//3/+f////3//f/5//3//////AAD/f/////8AAP9//////wAA/3//////AAD/f/////8AAP9//////wAA/3//fwAA/z//f/9/AAD/P/9//38AAP8//3//fwAA/z//f/9/AAD/P/9//38AAP8/AAD/f/9//n8AAP9//3/+fwAA/3//f/5/AAD/f/9//n8AAP9//3/+fwAA/3//f/5//38AAP//AAD/fwAA//8AAP9/AAD//wAA/38AAP//AAD/fwAA//8AAP9/AAD//wAA/////wAA/z//////AAD/P/////8AAP8//////wAA/z//////AAD/P/////8AAP8/")
+}]
+
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sddo1"]
 albedo_color = Color(1, 0.35, 0.35, 1)
 
@@ -144,7 +158,7 @@ display_fps = true
 [node name="Label" parent="SceneTitle/Control" index="0"]
 text = "Eleventh (11th) Assignment : AI Navigation"
 
-[node name="ToggleVBox" type="VBoxContainer" parent="SceneTitle/Control" index="4"]
+[node name="Panel" type="PanelContainer" parent="SceneTitle/Control" index="4"]
 layout_mode = 1
 anchors_preset = -1
 anchor_left = 1.0
@@ -158,40 +172,49 @@ offset_bottom = -15.0
 grow_horizontal = 0
 grow_vertical = 0
 
-[node name="ResetSceneBtn" type="Button" parent="SceneTitle/Control/ToggleVBox"]
+[node name="ToggleVBox" type="VBoxContainer" parent="SceneTitle/Control/Panel"]
+layout_mode = 2
+
+[node name="ResetSceneBtn" type="Button" parent="SceneTitle/Control/Panel/ToggleVBox"]
 layout_mode = 2
 focus_mode = 0
 theme_override_font_sizes/font_size = 20
 text = "Reset Scene"
 
-[node name="GateClosedToggle" type="CheckButton" parent="SceneTitle/Control/ToggleVBox"]
+[node name="GateClosedToggle" type="CheckButton" parent="SceneTitle/Control/Panel/ToggleVBox"]
 layout_mode = 2
 focus_mode = 0
 theme_override_font_sizes/font_size = 20
 text = "Gate Closed"
 
-[node name="GateLiftedToggle" type="CheckButton" parent="SceneTitle/Control/ToggleVBox"]
+[node name="GateLiftedToggle" type="CheckButton" parent="SceneTitle/Control/Panel/ToggleVBox"]
 layout_mode = 2
 focus_mode = 0
 theme_override_font_sizes/font_size = 20
 text = "Gate Lifted"
 
-[node name="CameraCheckboxes" type="HBoxContainer" parent="SceneTitle/Control/ToggleVBox"]
+[node name="FloorSlidedToggle" type="CheckButton" parent="SceneTitle/Control/Panel/ToggleVBox"]
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 20
+text = "Floor Slided"
+
+[node name="CameraCheckboxes" type="HBoxContainer" parent="SceneTitle/Control/Panel/ToggleVBox"]
 layout_mode = 2
 
-[node name="CheckBox" type="CheckBox" parent="SceneTitle/Control/ToggleVBox/CameraCheckboxes"]
+[node name="CheckBox" type="CheckBox" parent="SceneTitle/Control/Panel/ToggleVBox/CameraCheckboxes"]
 unique_name_in_owner = true
 layout_mode = 2
 button_pressed = true
 button_group = ExtResource("3_sdqww")
 text = "Camera1"
 
-[node name="CheckBox2" type="CheckBox" parent="SceneTitle/Control/ToggleVBox/CameraCheckboxes"]
+[node name="CheckBox2" type="CheckBox" parent="SceneTitle/Control/Panel/ToggleVBox/CameraCheckboxes"]
 layout_mode = 2
 button_group = ExtResource("3_sdqww")
 text = "Camera2"
 
-[node name="CheckBox3" type="CheckBox" parent="SceneTitle/Control/ToggleVBox/CameraCheckboxes"]
+[node name="CheckBox3" type="CheckBox" parent="SceneTitle/Control/Panel/ToggleVBox/CameraCheckboxes"]
 layout_mode = 2
 button_group = ExtResource("3_sdqww")
 text = "Camera3"
@@ -247,7 +270,7 @@ mesh = SubResource("ArrayMesh_gwbey")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.47339, 0, 0.937325)
 mesh = SubResource("ArrayMesh_gwbey")
 
-[node name="MovableWall" type="StaticBody3D" parent="Region3D/Walls"]
+[node name="MovableWall" type="AnimatableBody3D" parent="Region3D/Walls"]
 unique_name_in_owner = true
 transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, -0.339722, 0.464569, 2.99606)
 metadata/_edit_group_ = true
@@ -275,6 +298,26 @@ shape = SubResource("ConcavePolygonShape3D_tfl3k")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Region3D/Walls/CSGBox3D5"]
 mesh = SubResource("ArrayMesh_jfwdr")
+
+[node name="MovableFloor" type="AnimatableBody3D" parent="Region3D/Walls"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.338623, 0.0701425, -0.262212)
+metadata/_edit_group_ = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Region3D/Walls/MovableFloor"]
+shape = SubResource("ConcavePolygonShape3D_pixp5")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Region3D/Walls/MovableFloor"]
+mesh = SubResource("ArrayMesh_yya78")
+metadata/_edit_lock_ = true
+
+[node name="FloorObstacle" type="NavigationObstacle3D" parent="Region3D/Walls/MovableFloor"]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.0451244, 0)
+height = 0.53
+vertices = PackedVector3Array(0.14777, 0, 0.708483, 0.152313, 0, -0.694165, -0.18161, 0, -0.678742, -0.189785, 0, 0.72132)
+affect_navigation_mesh = true
+avoidance_layers = 4
 
 [node name="WorldEnvironment" parent="." instance=ExtResource("2_ysw6n")]
 
@@ -324,6 +367,7 @@ avoidance_enabled = true
 height = 0.4
 radius = 0.1
 neighbor_distance = 5.0
+avoidance_layers = 5
 avoidance_priority = 0.8
 
 [node name="UpdateNavtargetTimer" type="Timer" parent="AINavAgent_Small"]
@@ -365,9 +409,10 @@ autostart = true
 [node name="FinishSpot" type="Marker3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.50345, 0.0608556, 0.945363)
 
-[connection signal="pressed" from="SceneTitle/Control/ToggleVBox/ResetSceneBtn" to="." method="_on_reset_scene_btn_pressed"]
-[connection signal="toggled" from="SceneTitle/Control/ToggleVBox/GateClosedToggle" to="." method="_on_gate_closed_toggle_toggled"]
-[connection signal="toggled" from="SceneTitle/Control/ToggleVBox/GateLiftedToggle" to="." method="_on_gate_lifted_toggle_toggled"]
+[connection signal="pressed" from="SceneTitle/Control/Panel/ToggleVBox/ResetSceneBtn" to="." method="_on_reset_scene_btn_pressed"]
+[connection signal="toggled" from="SceneTitle/Control/Panel/ToggleVBox/GateClosedToggle" to="." method="_on_gate_closed_toggle_toggled"]
+[connection signal="toggled" from="SceneTitle/Control/Panel/ToggleVBox/GateLiftedToggle" to="." method="_on_gate_lifted_toggle_toggled"]
+[connection signal="toggled" from="SceneTitle/Control/Panel/ToggleVBox/FloorSlidedToggle" to="." method="_on_floor_slided_toggle_toggled"]
 [connection signal="timeout" from="AINavAgent_Small/UpdateNavtargetTimer" to="AINavAgent_Small" method="_on_update_navtarget_timer_timeout"]
 [connection signal="timeout" from="AINavAgent_Big/UpdateNavtargetTimer" to="AINavAgent_Big" method="_on_update_navtarget_timer_timeout"]
 

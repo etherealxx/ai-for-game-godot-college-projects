@@ -22,8 +22,11 @@ func init_and_set_agent_radius_height(navmesh : NavigationMesh, radius : float, 
 	
 func navmesh_parse_and_bake():
 	var source_geometry_data: NavigationMeshSourceGeometryData3D = NavigationMeshSourceGeometryData3D.new()
+	%FloorObstacle.affect_navigation_mesh = true
 	NavigationServer3D.parse_source_geometry_data(navmesh_agentsmall, source_geometry_data, root_geometry)
 	NavigationServer3D.bake_from_source_geometry_data(navmesh_agentsmall, source_geometry_data)
+	%FloorObstacle.affect_navigation_mesh = false
+	NavigationServer3D.parse_source_geometry_data(navmesh_agentsmall, source_geometry_data, root_geometry)
 	NavigationServer3D.bake_from_source_geometry_data(navmesh_agentbig, source_geometry_data)
 	
 func navigation_map_setup():
@@ -81,6 +84,14 @@ func _on_checkboxes_toggled(btn : BaseButton):
 		camera.current = false
 		if camera.name == btn.text:
 			camera.current = true
+
+func _on_floor_slided_toggle_toggled(toggled_on: bool) -> void:
+	var tween = create_tween()
+	if toggled_on:
+		tween.tween_property(%MovableFloor, "position:z", 1.067, 0.5).from_current()
+	else:
+		tween.tween_property(%MovableFloor, "position:z", -0.26, 0.5).from_current()
+	tween.tween_callback(_on_obstacle_moved)
 
 func _on_reset_scene_btn_pressed() -> void:
 	get_tree().reload_current_scene()
