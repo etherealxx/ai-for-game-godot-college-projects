@@ -1,9 +1,9 @@
 [gd_scene load_steps=31 format=4 uid="uid://b6r0y8uwu3q8n"]
 
 [ext_resource type="PackedScene" uid="uid://cmvvu6ki0eh20" path="res://scenes/scene_title.tscn" id="1_7xhij"]
-[ext_resource type="Script" path="res://11th Assignment _ AI Navigation/scripts/11_th_assignment.gd" id="1_scxqn"]
+[ext_resource type="Script" path="res://11th Assignment _ AI Navigation/11_th_assignment.gd" id="1_scxqn"]
 [ext_resource type="PackedScene" uid="uid://dgr6e2hsbumgl" path="res://otherassets/GDQuest 3D WorldEnvi/GDQuest 3D WorldEnvi.tscn" id="2_ysw6n"]
-[ext_resource type="ButtonGroup" uid="uid://1xrvevia6kh2" path="res://11th Assignment _ AI Navigation/resources/checkbox_buttongroup.tres" id="3_sdqww"]
+[ext_resource type="ButtonGroup" uid="uid://1xrvevia6kh2" path="res://11th Assignment _ AI Navigation/resources/checkbox_buttongroup.tres" id="3_empow"]
 [ext_resource type="Script" path="res://11th Assignment _ AI Navigation/scripts/ai_nav_agent_bigsmall.gd" id="4_sv5ou"]
 
 [sub_resource type="StandardMaterial3D" id="StandardMaterial3D_53daj"]
@@ -206,17 +206,17 @@ layout_mode = 2
 unique_name_in_owner = true
 layout_mode = 2
 button_pressed = true
-button_group = ExtResource("3_sdqww")
+button_group = ExtResource("3_empow")
 text = "Camera1"
 
 [node name="CheckBox2" type="CheckBox" parent="SceneTitle/Control/Panel/ToggleVBox/CameraCheckboxes"]
 layout_mode = 2
-button_group = ExtResource("3_sdqww")
+button_group = ExtResource("3_empow")
 text = "Camera2"
 
 [node name="CheckBox3" type="CheckBox" parent="SceneTitle/Control/Panel/ToggleVBox/CameraCheckboxes"]
 layout_mode = 2
-button_group = ExtResource("3_sdqww")
+button_group = ExtResource("3_empow")
 text = "Camera3"
 
 [node name="FloorMesh" type="MeshInstance3D" parent="."]

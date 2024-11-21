@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://cthk4vw1oo1ad"]
+
+[ext_resource type="Script" path="res://12th Assignment _ Astar Pathfinding/scripts/ai_nav_agent_astar.gd" id="1_1kpef"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sddo1"]
+albedo_color = Color(1, 0.35, 0.35, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_dvo5n"]
+material = SubResource("StandardMaterial3D_sddo1")
+radius = 0.081
+height = 0.4
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_442t8"]
+albedo_color = Color(0.52, 0.912, 1, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_sdr11"]
+material = SubResource("StandardMaterial3D_442t8")
+radius = 0.01
+height = 0.064
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_tyq7c"]
+radius = 0.0807554
+height = 0.38227
+
+[node name="AINavAgentAstar" type="CharacterBody3D" groups=["chaser"]]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.04161, 0, 1.45828)
+collision_layer = 2
+collision_mask = 6
+script = ExtResource("1_1kpef")
+target_character = NodePath("../PlayerPointer")
+nav_speed = 0.8
+
+[node name="CapsuleBody" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.244241, 0)
+mesh = SubResource("CapsuleMesh_dvo5n")
+
+[node name="Eye" type="MeshInstance3D" parent="."]
+transform = Transform3D(-5.92727e-08, 1.356, -5.92727e-08, 0, -5.92727e-08, -1.356, -1.356, -5.92727e-08, 2.5909e-15, 0, 0.359675, 0.0805967)
+mesh = SubResource("CapsuleMesh_sdr11")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.23926, 0)
+shape = SubResource("CapsuleShape3D_tyq7c")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+avoidance_enabled = true
+height = 0.4
+radius = 0.2
+neighbor_distance = 5.0
+avoidance_layers = 5
+avoidance_priority = 0.8
+
+[node name="UpdateNavtargetTimer" type="Timer" parent="."]
+process_callback = 0
+wait_time = 0.5
+autostart = true
+
+[connection signal="timeout" from="UpdateNavtargetTimer" to="." method="_on_update_navtarget_timer_timeout"]
