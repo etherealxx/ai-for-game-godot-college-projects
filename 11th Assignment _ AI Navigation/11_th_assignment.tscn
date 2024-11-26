@@ -1,16 +1,16 @@
-[gd_scene load_steps=31 format=4 uid="uid://b6r0y8uwu3q8n"]
+[gd_scene load_steps=33 format=4 uid="uid://b6r0y8uwu3q8n"]
 
 [ext_resource type="PackedScene" uid="uid://cmvvu6ki0eh20" path="res://scenes/scene_title.tscn" id="1_7xhij"]
 [ext_resource type="Script" path="res://11th Assignment _ AI Navigation/11_th_assignment.gd" id="1_scxqn"]
 [ext_resource type="PackedScene" uid="uid://dgr6e2hsbumgl" path="res://otherassets/GDQuest 3D WorldEnvi/GDQuest 3D WorldEnvi.tscn" id="2_ysw6n"]
-[ext_resource type="ButtonGroup" uid="uid://1xrvevia6kh2" path="res://11th Assignment _ AI Navigation/resources/checkbox_buttongroup.tres" id="3_empow"]
+[ext_resource type="ButtonGroup" uid="uid://1xrvevia6kh2" path="res://12th Assignment _ Astar Pathfinding/resources/checkbox_buttongroup2.tres" id="3_empow"]
 [ext_resource type="Script" path="res://11th Assignment _ AI Navigation/scripts/ai_nav_agent_bigsmall.gd" id="4_sv5ou"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_53daj"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nndte"]
 albedo_color = Color(0.2484, 0.2484, 0.2484, 1)
 
 [sub_resource type="BoxMesh" id="BoxMesh_jva4l"]
-material = SubResource("StandardMaterial3D_53daj")
+material = SubResource("StandardMaterial3D_nndte")
 size = Vector3(8.76, 0.2, 3.875)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ui1qv"]
@@ -114,19 +114,19 @@ _surfaces = [{
 "vertex_data": PackedByteArray("AEAlPgBAHj0ArDM/AEAlPgBAHj0ArDO/AEAlPgBAHr0ArDO/AEAlPgBAHr0ArDO/AEAlPgBAHr0ArDM/AEAlPgBAHj0ArDM/AEAlPgBAHj0ArDM/AEAlvgBAHj0ArDM/AEAlvgBAHj0ArDO/AEAlvgBAHj0ArDO/AEAlPgBAHj0ArDO/AEAlPgBAHj0ArDM/AEAlPgBAHj0ArDM/AEAlPgBAHr0ArDM/AEAlvgBAHr0ArDM/AEAlvgBAHr0ArDM/AEAlvgBAHj0ArDM/AEAlPgBAHj0ArDM/AEAlvgBAHj0ArDO/AEAlvgBAHj0ArDM/AEAlvgBAHr0ArDM/AEAlvgBAHr0ArDM/AEAlvgBAHr0ArDO/AEAlvgBAHj0ArDO/AEAlvgBAHr0ArDM/AEAlPgBAHr0ArDM/AEAlPgBAHr0ArDO/AEAlPgBAHr0ArDO/AEAlvgBAHr0ArDO/AEAlvgBAHr0ArDM/AEAlPgBAHr0ArDO/AEAlPgBAHj0ArDO/AEAlvgBAHj0ArDO/AEAlvgBAHj0ArDO/AEAlvgBAHr0ArDO/AEAlPgBAHr0ArDO/////f/9//n////9//3/+f////3//f/5/////f/9//n////9//3/+f////3//f/5//3//////AAD/f/////8AAP9//////wAA/3//////AAD/f/////8AAP9//////wAA/3//fwAA/z//f/9/AAD/P/9//38AAP8//3//fwAA/z//f/9/AAD/P/9//38AAP8/AAD/f/9//n8AAP9//3/+fwAA/3//f/5/AAD/f/9//n8AAP9//3/+fwAA/3//f/5//38AAP//AAD/fwAA//8AAP9/AAD//wAA/38AAP//AAD/fwAA//8AAP9/AAD//wAA/////wAA/z//////AAD/P/////8AAP8//////wAA/z//////AAD/P/////8AAP8/")
 }]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sddo1"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_tkmr6"]
 albedo_color = Color(1, 0.35, 0.35, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_dvo5n"]
-material = SubResource("StandardMaterial3D_sddo1")
+material = SubResource("StandardMaterial3D_tkmr6")
 radius = 0.081
 height = 0.4
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_442t8"]
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_7ytei"]
 albedo_color = Color(0.52, 0.912, 1, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_sdr11"]
-material = SubResource("StandardMaterial3D_442t8")
+material = SubResource("StandardMaterial3D_7ytei")
 radius = 0.01
 height = 0.064
 
@@ -134,10 +134,16 @@ height = 0.064
 radius = 0.0807554
 height = 0.38227
 
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_sddo1"]
+albedo_color = Color(1, 0.35, 0.35, 1)
+
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_rw8eo"]
 material = SubResource("StandardMaterial3D_sddo1")
 radius = 0.189
 height = 0.825
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_442t8"]
+albedo_color = Color(0.52, 0.912, 1, 1)
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_u0mr2"]
 material = SubResource("StandardMaterial3D_442t8")
