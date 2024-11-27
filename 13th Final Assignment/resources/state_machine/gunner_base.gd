@@ -2,8 +2,8 @@ extends GunnerState
 class_name GunnerBase
 
 const ANIM_BLEND_SPEED := 7.0
-const SPEED = 5.0
 
+var SPEED = 3.0
 var robot : CharacterBody3D
 var animtree : AnimationTree
 var input_dir := Vector2.ZERO
@@ -30,7 +30,6 @@ func Physics_Update(delta: float) -> void:
 									lerp(animtree_get_blendamount("ShootBlend"),
 									1.0 if is_shooting else 0.0,
 									delta * ANIM_BLEND_SPEED))
-		
 
 func animtree_set_condition(name : StringName, state : bool):
 	animtree["parameters/conditions/%s" % name] = state
@@ -49,3 +48,6 @@ func animtree_set_blendamount(name : StringName, blendamount : float):
 
 func animtree_request_seek(name : StringName, second_playback_position : float):
 	animtree["parameters/%s/seek_request" % name] = second_playback_position
+
+func animtree_set_scale(name : StringName, scale : float):
+	animtree["parameters/%s/scale" % name] = scale

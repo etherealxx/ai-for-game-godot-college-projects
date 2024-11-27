@@ -26,11 +26,11 @@ script = ExtResource("6_mqyon")
 [node name="FinalAssignment" type="Node3D"]
 
 [node name="SceneTitle" parent="." instance=ExtResource("1_pm0ee")]
-label_text = "Twelveth (12th) Assignment : A* Pathfinding"
+label_text = "Final Assignment"
 display_fps = true
 
 [node name="Label" parent="SceneTitle/Control" index="0"]
-text = "Twelveth (12th) Assignment : A* Pathfinding"
+text = "Final Assignment"
 
 [node name="FloorMesh" type="MeshInstance3D" parent="."]
 transform = Transform3D(3.04548, 0, 0, 0, 1.59533, 0, 0, 0, 3.04548, 0, -0.104993, -1.05845)
