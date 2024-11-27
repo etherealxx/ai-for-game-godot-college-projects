@@ -1,0 +1,99 @@
+[gd_scene load_steps=11 format=3 uid="uid://ddan3iyqj3f1d"]
+
+[ext_resource type="PackedScene" uid="uid://csxuu6mvvospl" path="res://13th Final Assignment/scenes/models/gunner_robot_model.tscn" id="1_8dt6q"]
+[ext_resource type="Script" path="res://13th Final Assignment/scripts/gunner_robot.gd" id="1_ms4ev"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5o5ke"]
+radius = 0.582421
+height = 1.57958
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_r7mun"]
+radius = 0.294078
+height = 1.57958
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ynwf1"]
+animation = &"idle_anm"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_q6rn7"]
+animation = &"shoot"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_qa6ng"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wg57g"]
+animation = &"walk"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_6hc34"]
+
+[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_mmuo5"]
+nodes/Idle/node = SubResource("AnimationNodeAnimation_ynwf1")
+nodes/Idle/position = Vector2(-200, 20)
+nodes/Shoot/node = SubResource("AnimationNodeAnimation_q6rn7")
+nodes/Shoot/position = Vector2(185.652, 345.816)
+nodes/ShootBlend/node = SubResource("AnimationNodeBlend2_qa6ng")
+nodes/ShootBlend/position = Vector2(360, 100)
+nodes/Walk/node = SubResource("AnimationNodeAnimation_wg57g")
+nodes/Walk/position = Vector2(-220, 220)
+nodes/WalkBlend/node = SubResource("AnimationNodeBlend2_6hc34")
+nodes/WalkBlend/position = Vector2(91.6093, 123.207)
+nodes/output/position = Vector2(620, 80)
+node_connections = [&"ShootBlend", 0, &"WalkBlend", &"ShootBlend", 1, &"Shoot", &"WalkBlend", 0, &"Idle", &"WalkBlend", 1, &"Walk", &"output", 0, &"ShootBlend"]
+
+[node name="GunnerRobot" type="CharacterBody3D"]
+script = ExtResource("1_ms4ev")
+
+[node name="gunner_robot_model" parent="." instance=ExtResource("1_8dt6q")]
+
+[node name="Skeleton3D" parent="gunner_robot_model/GunnerRobot_rig" index="0"]
+bones/0/rotation = Quaternion(0.612919, 2.01908e-07, 1.56621e-07, 0.790146)
+bones/0/scale = Vector3(1, 1, 0.999998)
+bones/1/position = Vector3(0.011183, 12.9172, -49.6246)
+bones/1/rotation = Quaternion(0.195195, 0.657915, 0.563129, -0.460362)
+bones/1/scale = Vector3(1, 1, 1)
+bones/2/position = Vector3(15.6004, -43.252, 22.1515)
+bones/2/rotation = Quaternion(0.142384, 0.111689, 0.829343, -0.528624)
+bones/3/position = Vector3(0.00871607, 21.0692, -0.325363)
+bones/3/rotation = Quaternion(-0.000247628, 0.706262, 0.70795, 0.000466147)
+bones/3/scale = Vector3(1, 1, 1)
+bones/4/rotation = Quaternion(0.00762511, 0.711401, 0.00526026, 0.702725)
+bones/5/rotation = Quaternion(0.163686, 0.678444, 0.655821, -0.287784)
+bones/6/rotation = Quaternion(-0.00645689, -0.0537365, 0.991399, 0.119159)
+bones/6/scale = Vector3(1, 1, 1)
+bones/7/scale = Vector3(1, 1, 1)
+bones/10/scale = Vector3(1, 1, 1)
+bones/11/rotation = Quaternion(-0.233123, 0.523421, 0.776412, 0.262428)
+bones/12/rotation = Quaternion(-0.00253261, 0.0193792, 0.991378, -0.129568)
+bones/12/scale = Vector3(1, 1, 1)
+bones/13/rotation = Quaternion(0.22512, 0.10342, 0.203595, 0.947193)
+bones/13/scale = Vector3(1, 1, 1)
+bones/14/rotation = Quaternion(-0.165249, 0.677467, 0.655329, 0.290301)
+bones/14/scale = Vector3(1, 1, 1)
+bones/15/rotation = Quaternion(0.00739586, -0.0598915, 0.990655, -0.122315)
+bones/15/scale = Vector3(0.999998, 1, 0.999999)
+bones/16/rotation = Quaternion(0.612677, 0.0311816, 0.220844, 0.75821)
+bones/16/scale = Vector3(1, 1, 1)
+
+[node name="Object_10" parent="gunner_robot_model/GunnerRobot_rig/Skeleton3D" index="0"]
+transform = Transform3D(0.988228, -0.0263027, 0.150708, 0, 0.985109, 0.171929, -0.152986, -0.169905, 0.973513, 0, 0, 0)
+
+[node name="Object_11" parent="gunner_robot_model/GunnerRobot_rig/Skeleton3D" index="1"]
+transform = Transform3D(0.988228, -0.0263027, 0.150708, 0, 0.985109, 0.171929, -0.152986, -0.169905, 0.973513, 0, 0, 0)
+
+[node name="Object_8" parent="gunner_robot_model/GunnerRobot_rig/Skeleton3D" index="16"]
+transform = Transform3D(0.999848, 0, 0.0174524, 0, 1, 0, -0.0174524, 0, 0.999848, 0, 0, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.812238, 0)
+shape = SubResource("CapsuleShape3D_5o5ke")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, -1.19902, 0.520152, 0.191971)
+shape = SubResource("CapsuleShape3D_r7mun")
+
+[node name="AnimationTree" type="AnimationTree" parent="."]
+root_node = NodePath("../gunner_robot_model")
+tree_root = SubResource("AnimationNodeBlendTree_mmuo5")
+anim_player = NodePath("../gunner_robot_model/AnimationPlayer")
+parameters/ShootBlend/blend_amount = 0.0
+parameters/WalkBlend/blend_amount = 0.0
+
+[editable path="gunner_robot_model"]
