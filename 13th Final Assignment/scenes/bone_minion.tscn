@@ -8,6 +8,11 @@ height = 2.36229
 
 [sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sce2w"]
 animation = &"Take 001"
+use_custom_timeline = true
+timeline_length = 0.0
+stretch_time_scale = false
+start_offset = 0.0
+loop_mode = 1
 
 [node name="BoneMinion" type="CharacterBody3D" groups=["enemy"]]
 collision_layer = 2
@@ -17,36 +22,44 @@ script = ExtResource("1_n8j53")
 [node name="BoneMinionModel" parent="." instance=ExtResource("1_55d1v")]
 
 [node name="Skeleton3D" parent="BoneMinionModel/Sketchfab_model/testSkeleExport1_fbx/Object_2/RootNode/Skele_RIG/Skele_ROOT/Object_37" index="0"]
-bones/1/position = Vector3(-0.267431, 0.751654, -0.207964)
-bones/2/position = Vector3(0.313462, 0.0548631, -0.0157381)
-bones/2/rotation = Quaternion(-0.0103579, -0.110144, 0.614604, 0.78104)
-bones/3/rotation = Quaternion(0.47651, -0.613437, 0.311942, 0.547106)
-bones/4/rotation = Quaternion(0.911634, -0.217185, 0.309443, 0.161244)
-bones/5/rotation = Quaternion(1.6232e-14, -0.469774, 3.05425e-14, 0.882787)
-bones/6/rotation = Quaternion(0.559413, 0.173829, -0.108378, 0.803178)
-bones/8/rotation = Quaternion(-0.425452, 0.632157, 0.433818, 0.480802)
-bones/9/rotation = Quaternion(0.95409, 0.0146325, 0.25578, -0.155162)
-bones/10/rotation = Quaternion(-6.40765e-15, 0.389913, 1.48207e-14, 0.920852)
-bones/11/rotation = Quaternion(-0.432223, 0.640289, 0.630113, 0.07856)
-bones/14/position = Vector3(0.458555, -0.0663278, -0.0932758)
-bones/14/rotation = Quaternion(0.26216, 0.0533786, -0.124603, 0.955456)
-bones/16/rotation = Quaternion(-0.38117, -0.638297, -0.190095, 0.64121)
-bones/17/rotation = Quaternion(0.775241, 0.223243, -0.54747, -0.222353)
-bones/18/rotation = Quaternion(0.811468, -0.584397, -3.68929e-09, 6.70868e-09)
-bones/19/rotation = Quaternion(0.354777, -0.609945, 0.439044, 0.556184)
-bones/21/rotation = Quaternion(0.130604, -0.363902, -0.280145, 0.878656)
-bones/22/rotation = Quaternion(0.733512, -0.679676, -2.65126e-17, -1.07806e-16)
-bones/23/rotation = Quaternion(-0.500203, 0.688272, -0.333562, -0.405974)
+bones/1/position = Vector3(0.205969, 0.789129, -0.207964)
+bones/2/position = Vector3(0.315396, 0.0566456, -0.0124503)
+bones/2/rotation = Quaternion(0.0362618, 0.116405, 0.608498, 0.784133)
+bones/3/rotation = Quaternion(0.416624, -0.530958, 0.521927, 0.521632)
+bones/4/rotation = Quaternion(0.948072, 0.067958, -0.185189, 0.249494)
+bones/5/rotation = Quaternion(1.63695e-14, -0.473023, 3.06565e-14, 0.88105)
+bones/6/rotation = Quaternion(0.624678, 0.595772, -0.141948, 0.484443)
+bones/8/rotation = Quaternion(-0.477367, 0.438286, 0.480816, 0.590629)
+bones/9/rotation = Quaternion(0.751309, -0.233327, -0.573862, -0.227543)
+bones/10/rotation = Quaternion(-1.08567e-14, 0.502929, 1.83929e-14, 0.864328)
+bones/11/rotation = Quaternion(-0.0517688, 0.537555, 0.839355, 0.0619576)
+bones/14/position = Vector3(0.435388, -0.0669073, 0.0133329)
+bones/14/rotation = Quaternion(-0.291375, -0.039068, -0.117142, 0.948605)
+bones/16/rotation = Quaternion(-0.201408, -0.677816, -0.361895, 0.60748)
+bones/17/rotation = Quaternion(0.845124, 0.412461, -0.332555, -0.0710572)
+bones/18/rotation = Quaternion(0.812388, -0.583117, -3.66309e-09, 6.69623e-09)
+bones/19/rotation = Quaternion(0.481668, -0.744059, 0.361932, 0.288752)
+bones/21/rotation = Quaternion(0.348251, -0.561459, -0.204244, 0.722336)
+bones/22/rotation = Quaternion(0.857159, -0.515052, -4.04843e-17, -3.13997e-17)
+bones/23/rotation = Quaternion(-0.356727, 0.481274, -0.456975, -0.657492)
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0461159, 1.19296, 0)
 shape = SubResource("CapsuleShape3D_5s5fl")
 
-[node name="AnimationPlayer" type="AnimationTree" parent="."]
+[node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("../BoneMinionModel")
 tree_root = SubResource("AnimationNodeAnimation_sce2w")
 anim_player = NodePath("../BoneMinionModel/AnimationPlayer")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+path_postprocessing = 1
+
+[node name="RefreshPath" type="Timer" parent="."]
+process_callback = 0
+wait_time = 3.0
+autostart = true
+
+[connection signal="timeout" from="RefreshPath" to="." method="_on_refresh_path_timeout"]
 
 [editable path="BoneMinionModel"]

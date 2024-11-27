@@ -11,13 +11,15 @@
 extends CharacterBody3D
 
 @export var target_character : NodePath
-@onready var navagent : NavigationAgent3D = $NavigationAgent3D
-
 @export var nav_speed := 0.4
+
+@onready var navagent : NavigationAgent3D = $NavigationAgent3D
+@onready var model: Node3D = $BoneMinionModel
+
 var nav_accel := 10.0
 var target_character_position : Vector3
 var map_ready := false
-var chasing_target := false
+@export var chasing_target := false
 
 func _ready() -> void:
 	navagent.target_desired_distance = 0.5
@@ -25,6 +27,7 @@ func _ready() -> void:
 		target_character_position = get_node(target_character).get_global_position()
 	NavigationServer3D.map_changed.connect(_on_map_ready)
 	call_deferred("actor_setup")
+	$AnimationTree.tree_root.start_offset = randf_range(0.0, 1.0)
 
 func _on_map_ready(_rid):
 	map_ready = true
@@ -64,13 +67,19 @@ func _physics_process(delta):
 		move_and_slide()
 		
 		if navagent.distance_to_target() > 0.05:
-			look_at(global_transform.origin + direction, Vector3.UP, true)
+			#look_at(global_transform.origin + direction, Vector3.UP, true)
+			var direction_to_target = (global_transform.origin + direction - global_transform.origin).normalized()
+			var target_yaw = atan2(direction_to_target.x, direction_to_target.z)
+			model.rotation.y = lerp_angle(model.rotation.y, target_yaw, 0.15)
 		else:
-			#print("distance: %f" % navagent.distance_to_target())
-			chasing_target = false
-			#if has_node(target_character):
-				#get_node(target_character).queue_free()
+			refresh_navigation()
 
+func refresh_navigation():
+	chasing_target = false
+	target_character_position = get_node(target_character).get_global_position()
+	set_movement_target(target_character_position)
+	chasing_target = true
+	
 func _on_update_navtarget_timer_timeout() -> void:
 	if has_node(target_character):
 		target_character_position = get_node(target_character).get_global_position()
@@ -78,3 +87,6 @@ func _on_update_navtarget_timer_timeout() -> void:
 
 func get_distance_to(body : Node) -> float:
 	return self.global_position.distance_to(body.global_position)
+
+func _on_refresh_path_timeout() -> void:
+	refresh_navigation()
