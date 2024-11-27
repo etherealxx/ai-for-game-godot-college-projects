@@ -1,5 +1,33 @@
-[gd_scene load_steps=2 format=3 uid="uid://yjar4tmf3asm"]
+[gd_scene load_steps=6 format=3 uid="uid://yjar4tmf3asm"]
 
 [ext_resource type="PackedScene" uid="uid://b1ywo7p40scrh" path="res://13th Final Assignment/assets/bone_minion/skeleton.glb" id="1_jp83v"]
+[ext_resource type="Script" path="res://13th Final Assignment/scripts/bone_minion_model.gd" id="2_c8fsg"]
+[ext_resource type="Texture2D" uid="uid://cfonjgn2xbjrm" path="res://13th Final Assignment/assets/bone_minion/skeleton_0.png" id="3_cmg1s"]
+[ext_resource type="Shader" path="res://13th Final Assignment/shaders/standardmat_hitflash.gdshader" id="3_qcv56"]
 
-[node name="BoneMinionModel" instance=ExtResource("1_jp83v")]
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_rm7qp"]
+resource_name = "UVMap"
+render_priority = 0
+shader = ExtResource("3_qcv56")
+shader_parameter/albedo = Color(1, 1, 1, 1)
+shader_parameter/point_size = 1.0
+shader_parameter/roughness = 1.0
+shader_parameter/metallic_texture_channel = null
+shader_parameter/specular = 0.5
+shader_parameter/metallic = 0.0
+shader_parameter/uv1_scale = Vector3(1, 1, 1)
+shader_parameter/uv1_offset = Vector3(0, 0, 0)
+shader_parameter/uv2_scale = Vector3(1, 1, 1)
+shader_parameter/uv2_offset = Vector3(0, 0, 0)
+shader_parameter/hit_flash_enabled = false
+shader_parameter/hit_flash_color = Color(1, 1, 1, 1)
+shader_parameter/flashes_per_second = 9.0
+shader_parameter/emission_strength = 0.165
+shader_parameter/texture_albedo = ExtResource("3_cmg1s")
+
+[node name="BoneMinionModel" node_paths=PackedStringArray("mesh_to_flash") instance=ExtResource("1_jp83v")]
+script = ExtResource("2_c8fsg")
+mesh_to_flash = NodePath("Sketchfab_model/testSkeleExport1_fbx/Object_2/RootNode/Skele_RIG/Skele_ROOT/Object_37/Skeleton3D/Object_64")
+
+[node name="Object_64" parent="Sketchfab_model/testSkeleExport1_fbx/Object_2/RootNode/Skele_RIG/Skele_ROOT/Object_37/Skeleton3D" index="0"]
+surface_material_override/0 = SubResource("ShaderMaterial_rm7qp")

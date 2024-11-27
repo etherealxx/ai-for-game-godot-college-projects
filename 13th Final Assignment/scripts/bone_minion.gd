@@ -19,6 +19,7 @@ extends CharacterBody3D
 var nav_accel := 10.0
 var target_character_position : Vector3
 var map_ready := false
+var hp := 3
 @export var chasing_target := false
 
 func _ready() -> void:
@@ -73,6 +74,16 @@ func _physics_process(delta):
 			model.rotation.y = lerp_angle(model.rotation.y, target_yaw, 0.15)
 		else:
 			refresh_navigation()
+
+func damaged():
+	hp -= 1
+	$BoneMinionModel.toggle_flash()
+	if hp <= 0:
+		$CollisionShape3D.set_deferred("disabled", true)
+	await get_tree().create_timer(0.5, true, true).timeout
+	$BoneMinionModel.toggle_flash()
+	if hp <= 0:
+		queue_free()
 
 func refresh_navigation():
 	chasing_target = false

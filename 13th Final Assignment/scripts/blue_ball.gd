@@ -34,6 +34,7 @@ func _on_visible_on_screen_notifier_3d_screen_exited() -> void:
 
 func _on_body_entered(body: Node3D) -> void:
 	if body.is_in_group("enemy"):
+		body.damaged()
 		spawn_death_particle()
 	elif body.is_in_group("wall"):
 		spawn_death_particle()
