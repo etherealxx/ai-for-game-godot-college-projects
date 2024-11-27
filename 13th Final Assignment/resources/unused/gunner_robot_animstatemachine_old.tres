@@ -1,0 +1,51 @@
+[gd_resource type="AnimationNodeStateMachine" load_steps=11 format=3 uid="uid://b68ixrm88bytk"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_e7i62"]
+animation = &"idle_anm"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_2r1da"]
+animation = &"shoot"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_h6nbb"]
+animation = &"walk"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_b80on"]
+switch_mode = 1
+advance_mode = 2
+advance_condition = &"is_moving"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_ck4x1"]
+switch_mode = 1
+advance_condition = &"shoot"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_7g7pk"]
+switch_mode = 2
+advance_condition = &"is_moving"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_v8udi"]
+switch_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_lekxs"]
+switch_mode = 1
+advance_condition = &"shoot"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_bplvn"]
+switch_mode = 1
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_n411q"]
+advance_mode = 2
+
+[resource]
+states/End/position = Vector2(901, 100)
+states/Start/position = Vector2(175, 100)
+states/idle_anm/node = SubResource("AnimationNodeAnimation_e7i62")
+states/idle_anm/position = Vector2(435, 77)
+states/shoot/node = SubResource("AnimationNodeAnimation_2r1da")
+states/shoot/position = Vector2(581, 186)
+states/walk/node = SubResource("AnimationNodeAnimation_h6nbb")
+states/walk/position = Vector2(643, 25)
+transitions = ["idle_anm", "walk", SubResource("AnimationNodeStateMachineTransition_b80on"), "walk", "shoot", SubResource("AnimationNodeStateMachineTransition_ck4x1"), "shoot", "walk", SubResource("AnimationNodeStateMachineTransition_7g7pk"), "shoot", "idle_anm", SubResource("AnimationNodeStateMachineTransition_v8udi"), "idle_anm", "shoot", SubResource("AnimationNodeStateMachineTransition_lekxs"), "walk", "idle_anm", SubResource("AnimationNodeStateMachineTransition_bplvn"), "Start", "idle_anm", SubResource("AnimationNodeStateMachineTransition_n411q")]
+graph_offset = Vector2(-113, -1)

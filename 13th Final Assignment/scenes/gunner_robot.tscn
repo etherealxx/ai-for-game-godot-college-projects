@@ -1,7 +1,15 @@
-[gd_scene load_steps=11 format=3 uid="uid://ddan3iyqj3f1d"]
+[gd_scene load_steps=17 format=3 uid="uid://ddan3iyqj3f1d"]
 
 [ext_resource type="PackedScene" uid="uid://csxuu6mvvospl" path="res://13th Final Assignment/scenes/models/gunner_robot_model.tscn" id="1_8dt6q"]
 [ext_resource type="Script" path="res://13th Final Assignment/scripts/gunner_robot.gd" id="1_ms4ev"]
+[ext_resource type="Script" path="res://13th Final Assignment/resources/state_machine/gunner_state_res.gd" id="2_bok3e"]
+[ext_resource type="Script" path="res://13th Final Assignment/resources/state_machine/gunner_idle.gd" id="2_y56tn"]
+
+[sub_resource type="Resource" id="Resource_g4nhm"]
+script = ExtResource("2_y56tn")
+
+[sub_resource type="Resource" id="Resource_vgx8o"]
+script = ExtResource("2_y56tn")
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5o5ke"]
 radius = 0.582421
@@ -11,46 +19,61 @@ height = 1.57958
 radius = 0.294078
 height = 1.57958
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ynwf1"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ms48p"]
 animation = &"idle_anm"
 
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_q6rn7"]
-animation = &"shoot"
-
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_qa6ng"]
-
-[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wg57g"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_821bd"]
 animation = &"walk"
 
-[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_6hc34"]
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_65ls5"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_ms48p")
+blend_point_0/pos = -1.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_821bd")
+blend_point_1/pos = 1.0
+value_label = "0"
 
-[sub_resource type="AnimationNodeBlendTree" id="AnimationNodeBlendTree_mmuo5"]
-nodes/Idle/node = SubResource("AnimationNodeAnimation_ynwf1")
-nodes/Idle/position = Vector2(-200, 20)
-nodes/Shoot/node = SubResource("AnimationNodeAnimation_q6rn7")
-nodes/Shoot/position = Vector2(185.652, 345.816)
-nodes/ShootBlend/node = SubResource("AnimationNodeBlend2_qa6ng")
-nodes/ShootBlend/position = Vector2(360, 100)
-nodes/Walk/node = SubResource("AnimationNodeAnimation_wg57g")
-nodes/Walk/position = Vector2(-220, 220)
-nodes/WalkBlend/node = SubResource("AnimationNodeBlend2_6hc34")
-nodes/WalkBlend/position = Vector2(91.6093, 123.207)
-nodes/output/position = Vector2(620, 80)
-node_connections = [&"ShootBlend", 0, &"WalkBlend", &"ShootBlend", 1, &"Shoot", &"WalkBlend", 0, &"Idle", &"WalkBlend", 1, &"Walk", &"output", 0, &"ShootBlend"]
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_y0bv8"]
+animation = &"shoot"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_in8nx"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sx03o"]
+advance_mode = 2
+advance_condition = &"is_shooting"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1ahbv"]
+xfade_time = 0.5
+break_loop_at_end = true
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"idle"
+
+[sub_resource type="AnimationNodeStateMachine" id="AnimationNodeStateMachine_jii4r"]
+states/End/position = Vector2(901, 100)
+states/IdleWalk/node = SubResource("AnimationNodeBlendSpace1D_65ls5")
+states/IdleWalk/position = Vector2(456, 51)
+states/Shoot/node = SubResource("AnimationNodeAnimation_y0bv8")
+states/Shoot/position = Vector2(601, 144)
+states/Start/position = Vector2(174, 93)
+transitions = ["Start", "IdleWalk", SubResource("AnimationNodeStateMachineTransition_in8nx"), "IdleWalk", "Shoot", SubResource("AnimationNodeStateMachineTransition_sx03o"), "Shoot", "IdleWalk", SubResource("AnimationNodeStateMachineTransition_1ahbv")]
+graph_offset = Vector2(-151, -32)
 
 [node name="GunnerRobot" type="CharacterBody3D"]
 script = ExtResource("1_ms4ev")
+initial_state = SubResource("Resource_g4nhm")
+possible_state = Array[ExtResource("2_bok3e")]([SubResource("Resource_vgx8o")])
 
 [node name="gunner_robot_model" parent="." instance=ExtResource("1_8dt6q")]
 
 [node name="Skeleton3D" parent="gunner_robot_model/GunnerRobot_rig" index="0"]
 bones/0/rotation = Quaternion(0.612919, 2.01908e-07, 1.56621e-07, 0.790146)
 bones/0/scale = Vector3(1, 1, 0.999998)
-bones/1/position = Vector3(0.011183, 12.9172, -49.6246)
-bones/1/rotation = Quaternion(0.195195, 0.657915, 0.563129, -0.460362)
+bones/1/position = Vector3(0.0111834, 13.4289, -51.6175)
+bones/1/rotation = Quaternion(0.193908, 0.664597, 0.562665, -0.451795)
 bones/1/scale = Vector3(1, 1, 1)
 bones/2/position = Vector3(15.6004, -43.252, 22.1515)
-bones/2/rotation = Quaternion(0.142384, 0.111689, 0.829343, -0.528624)
+bones/2/rotation = Quaternion(0.212232, 0.0977448, 0.831008, -0.504806)
 bones/3/position = Vector3(0.00871607, 21.0692, -0.325363)
 bones/3/rotation = Quaternion(-0.000247628, 0.706262, 0.70795, 0.000466147)
 bones/3/scale = Vector3(1, 1, 1)
@@ -91,9 +114,10 @@ shape = SubResource("CapsuleShape3D_r7mun")
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
 root_node = NodePath("../gunner_robot_model")
-tree_root = SubResource("AnimationNodeBlendTree_mmuo5")
+tree_root = SubResource("AnimationNodeStateMachine_jii4r")
 anim_player = NodePath("../gunner_robot_model/AnimationPlayer")
-parameters/ShootBlend/blend_amount = 0.0
-parameters/WalkBlend/blend_amount = 0.0
+parameters/conditions/idle = true
+parameters/conditions/is_shooting = false
+parameters/IdleWalk/blend_position = -1.0
 
 [editable path="gunner_robot_model"]

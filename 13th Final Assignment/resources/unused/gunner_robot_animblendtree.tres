@@ -1,0 +1,28 @@
+[gd_resource type="AnimationNodeBlendTree" load_steps=6 format=3 uid="uid://dwevpfc4skk45"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ynwf1"]
+animation = &"idle_anm"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_q6rn7"]
+animation = &"shoot"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_qa6ng"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_wg57g"]
+animation = &"walk"
+
+[sub_resource type="AnimationNodeBlend2" id="AnimationNodeBlend2_6hc34"]
+
+[resource]
+nodes/Idle/node = SubResource("AnimationNodeAnimation_ynwf1")
+nodes/Idle/position = Vector2(-200, 20)
+nodes/Shoot/node = SubResource("AnimationNodeAnimation_q6rn7")
+nodes/Shoot/position = Vector2(185.652, 345.816)
+nodes/ShootBlend/node = SubResource("AnimationNodeBlend2_qa6ng")
+nodes/ShootBlend/position = Vector2(360, 100)
+nodes/Walk/node = SubResource("AnimationNodeAnimation_wg57g")
+nodes/Walk/position = Vector2(-220, 220)
+nodes/WalkBlend/node = SubResource("AnimationNodeBlend2_6hc34")
+nodes/WalkBlend/position = Vector2(91.6093, 123.207)
+nodes/output/position = Vector2(620, 80)
+node_connections = [&"ShootBlend", 0, &"WalkBlend", &"ShootBlend", 1, &"Shoot", &"WalkBlend", 0, &"Idle", &"WalkBlend", 1, &"Walk", &"output", 0, &"ShootBlend"]
