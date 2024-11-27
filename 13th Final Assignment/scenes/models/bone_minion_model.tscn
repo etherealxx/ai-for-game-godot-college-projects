@@ -1,0 +1,5 @@
+[gd_scene load_steps=2 format=3 uid="uid://yjar4tmf3asm"]
+
+[ext_resource type="PackedScene" uid="uid://b1ywo7p40scrh" path="res://13th Final Assignment/assets/bone_minion/skeleton.glb" id="1_jp83v"]
+
+[node name="BoneMinionModel" instance=ExtResource("1_jp83v")]

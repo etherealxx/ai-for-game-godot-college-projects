@@ -1,8 +1,16 @@
 extends CharacterBody3D
 
+#signal shoot(position : Vector3, rotation : Vector3)
+
 @onready var animtree: AnimationTree = $AnimationTree
+@onready var enemy_detector: Area3D = $EnemyDetector
+@onready var model: Node3D = $gunner_robot_model
+
 @export var initial_state : GunnerState
 @export var possible_state : Array[GunnerState] # won't be used at runtime
+@export var camera_pivot : Node3D
+@export var shoot_direction: Node3D
+@export var bullets_groupnode: Node3D
 
 var current_state : GunnerState
 var states : Dictionary = {}
@@ -43,3 +51,9 @@ func _process(delta: float) -> void:
 func _physics_process(delta: float) -> void:
 	if current_state:
 		current_state.Physics_Update(delta)
+	#print("length %.1f | position %.1f | delta %.1f " % \
+	#[
+	#animtree["parameters/Shoot/current_length"], 
+	#animtree["parameters/Shoot/current_position"],
+	#animtree["parameters/Shoot/current_delta"]
+	#])

@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://5is4ktvl2asd"]
+
+[ext_resource type="PackedScene" uid="uid://dk3tfo2sxde0" path="res://13th Final Assignment/scenes/models/blueball_model.tscn" id="1_cb7up"]
+[ext_resource type="Script" path="res://13th Final Assignment/scripts/blue_ball.gd" id="1_sgosr"]
+[ext_resource type="PackedScene" uid="uid://dfhowalj8g716" path="res://13th Final Assignment/scenes/blue_ball_destroyed_particle.tscn" id="3_2cq2t"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_l8p46"]
+radius = 0.245716
+
+[node name="BlueBall" type="Area3D" groups=["bullet"]]
+collision_layer = 8
+collision_mask = 6
+script = ExtResource("1_sgosr")
+
+[node name="blueball_model" parent="." instance=ExtResource("1_cb7up")]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+shape = SubResource("SphereShape3D_l8p46")
+
+[node name="VisibleOnScreenNotifier3D" type="VisibleOnScreenNotifier3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.459268)
+aabb = AABB(-0.233534, -0.266272, -0.759075, 0.467067, 0.532544, 1.51815)
+
+[node name="BlueBallDestroyedParticle" parent="." instance=ExtResource("3_2cq2t")]
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="screen_exited" from="VisibleOnScreenNotifier3D" to="." method="_on_visible_on_screen_notifier_3d_screen_exited"]

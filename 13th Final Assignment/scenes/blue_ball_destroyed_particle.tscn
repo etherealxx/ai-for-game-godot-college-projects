@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://dfhowalj8g716"]
+
+[sub_resource type="Curve" id="Curve_tpe1n"]
+_data = [Vector2(0, 0.523366), 0.0, 0.0, 0, 0, Vector2(0.246901, 1), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="CurveTexture" id="CurveTexture_t23os"]
+curve = SubResource("Curve_tpe1n")
+
+[sub_resource type="ParticleProcessMaterial" id="ParticleProcessMaterial_lu1be"]
+emission_shape = 1
+emission_sphere_radius = 0.25
+direction = Vector3(0, -1, 0)
+spread = 90.0
+gravity = Vector3(0, 0, 0)
+scale_min = 0.5
+scale_curve = SubResource("CurveTexture_t23os")
+color = Color(0.469587, 0.778671, 0.993363, 1)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_c4o4r"]
+vertex_color_use_as_albedo = true
+
+[sub_resource type="SphereMesh" id="SphereMesh_0owwa"]
+material = SubResource("StandardMaterial3D_c4o4r")
+radius = 0.1
+height = 0.2
+radial_segments = 8
+rings = 4
+
+[node name="BlueBallDestroyedParticle" type="GPUParticles3D"]
+emitting = false
+lifetime = 0.5
+one_shot = true
+explosiveness = 1.0
+fixed_fps = 60
+visibility_aabb = AABB(-1, -1, -1, 2, 2, 2)
+process_material = SubResource("ParticleProcessMaterial_lu1be")
+draw_pass_1 = SubResource("SphereMesh_0owwa")

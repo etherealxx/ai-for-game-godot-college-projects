@@ -1,0 +1,52 @@
+[gd_scene load_steps=5 format=3 uid="uid://dj5j3o656ilb7"]
+
+[ext_resource type="PackedScene" uid="uid://yjar4tmf3asm" path="res://13th Final Assignment/scenes/models/bone_minion_model.tscn" id="1_55d1v"]
+[ext_resource type="Script" path="res://13th Final Assignment/scripts/bone_minion.gd" id="1_n8j53"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_5s5fl"]
+height = 2.36229
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_sce2w"]
+animation = &"Take 001"
+
+[node name="BoneMinion" type="CharacterBody3D" groups=["enemy"]]
+collision_layer = 2
+collision_mask = 7
+script = ExtResource("1_n8j53")
+
+[node name="BoneMinionModel" parent="." instance=ExtResource("1_55d1v")]
+
+[node name="Skeleton3D" parent="BoneMinionModel/Sketchfab_model/testSkeleExport1_fbx/Object_2/RootNode/Skele_RIG/Skele_ROOT/Object_37" index="0"]
+bones/1/position = Vector3(-0.267431, 0.751654, -0.207964)
+bones/2/position = Vector3(0.313462, 0.0548631, -0.0157381)
+bones/2/rotation = Quaternion(-0.0103579, -0.110144, 0.614604, 0.78104)
+bones/3/rotation = Quaternion(0.47651, -0.613437, 0.311942, 0.547106)
+bones/4/rotation = Quaternion(0.911634, -0.217185, 0.309443, 0.161244)
+bones/5/rotation = Quaternion(1.6232e-14, -0.469774, 3.05425e-14, 0.882787)
+bones/6/rotation = Quaternion(0.559413, 0.173829, -0.108378, 0.803178)
+bones/8/rotation = Quaternion(-0.425452, 0.632157, 0.433818, 0.480802)
+bones/9/rotation = Quaternion(0.95409, 0.0146325, 0.25578, -0.155162)
+bones/10/rotation = Quaternion(-6.40765e-15, 0.389913, 1.48207e-14, 0.920852)
+bones/11/rotation = Quaternion(-0.432223, 0.640289, 0.630113, 0.07856)
+bones/14/position = Vector3(0.458555, -0.0663278, -0.0932758)
+bones/14/rotation = Quaternion(0.26216, 0.0533786, -0.124603, 0.955456)
+bones/16/rotation = Quaternion(-0.38117, -0.638297, -0.190095, 0.64121)
+bones/17/rotation = Quaternion(0.775241, 0.223243, -0.54747, -0.222353)
+bones/18/rotation = Quaternion(0.811468, -0.584397, -3.68929e-09, 6.70868e-09)
+bones/19/rotation = Quaternion(0.354777, -0.609945, 0.439044, 0.556184)
+bones/21/rotation = Quaternion(0.130604, -0.363902, -0.280145, 0.878656)
+bones/22/rotation = Quaternion(0.733512, -0.679676, -2.65126e-17, -1.07806e-16)
+bones/23/rotation = Quaternion(-0.500203, 0.688272, -0.333562, -0.405974)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.0461159, 1.19296, 0)
+shape = SubResource("CapsuleShape3D_5s5fl")
+
+[node name="AnimationPlayer" type="AnimationTree" parent="."]
+root_node = NodePath("../BoneMinionModel")
+tree_root = SubResource("AnimationNodeAnimation_sce2w")
+anim_player = NodePath("../BoneMinionModel/AnimationPlayer")
+
+[node name="NavigationAgent3D" type="NavigationAgent3D" parent="."]
+
+[editable path="BoneMinionModel"]

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dk3tfo2sxde0"]
+
+[ext_resource type="PackedScene" uid="uid://chqu800x7wlv4" path="res://13th Final Assignment/assets/blue_ball/blueball.glb" id="1_q08il"]
+
+[node name="blueball_model" instance=ExtResource("1_q08il")]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 0, 0, 0)

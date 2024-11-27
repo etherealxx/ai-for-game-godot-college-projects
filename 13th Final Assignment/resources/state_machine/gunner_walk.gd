@@ -32,7 +32,11 @@ func Physics_Update(delta: float) -> void:
 		animtree_set_blendamount(	"WalkBlend",
 						lerp(animtree_get_blendamount("WalkBlend"), 1.0, delta * ANIM_BLEND_SPEED))
 		
-		var direction := (robot.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+		var camera_y_rot = camera_pivot.rotation.y
+		var camera_basis = Basis(Vector3.UP, camera_y_rot)
+		var direction = (camera_basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+
+		#var direction := (robot.transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
 		direction = direction * -1 # inverted because player looks from behind
 		robot.velocity.x = direction.x * SPEED
 		robot.velocity.z = direction.z * SPEED
