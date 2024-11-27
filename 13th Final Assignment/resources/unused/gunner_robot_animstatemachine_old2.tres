@@ -1,0 +1,41 @@
+[gd_resource type="AnimationNodeStateMachine" load_steps=8 format=3 uid="uid://h7n1c850orc3"]
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_ms48p"]
+animation = &"idle_anm"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_821bd"]
+animation = &"walk"
+
+[sub_resource type="AnimationNodeBlendSpace1D" id="AnimationNodeBlendSpace1D_65ls5"]
+blend_point_0/node = SubResource("AnimationNodeAnimation_ms48p")
+blend_point_0/pos = -1.0
+blend_point_1/node = SubResource("AnimationNodeAnimation_821bd")
+blend_point_1/pos = 1.0
+value_label = "0"
+
+[sub_resource type="AnimationNodeAnimation" id="AnimationNodeAnimation_y0bv8"]
+animation = &"shoot"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_in8nx"]
+advance_mode = 2
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_sx03o"]
+advance_mode = 2
+advance_condition = &"is_shooting"
+
+[sub_resource type="AnimationNodeStateMachineTransition" id="AnimationNodeStateMachineTransition_1ahbv"]
+xfade_time = 0.5
+break_loop_at_end = true
+switch_mode = 2
+advance_mode = 2
+advance_condition = &"idle"
+
+[resource]
+states/End/position = Vector2(901, 100)
+states/IdleWalk/node = SubResource("AnimationNodeBlendSpace1D_65ls5")
+states/IdleWalk/position = Vector2(415, 35)
+states/Shoot/node = SubResource("AnimationNodeAnimation_y0bv8")
+states/Shoot/position = Vector2(601, 144)
+states/Start/position = Vector2(174, 93)
+transitions = ["Start", "IdleWalk", SubResource("AnimationNodeStateMachineTransition_in8nx"), "IdleWalk", "Shoot", SubResource("AnimationNodeStateMachineTransition_sx03o"), "Shoot", "IdleWalk", SubResource("AnimationNodeStateMachineTransition_1ahbv")]
+graph_offset = Vector2(-61, -39)

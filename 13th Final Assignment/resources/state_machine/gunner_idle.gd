@@ -22,9 +22,9 @@ func Physics_Update(delta: float) -> void:
 		#animtree_set_condition("idle", true)
 		#animtree_set_condition("is_moving", false)
 		
-		# -1 idle, 1 walk
-		animtree_set_blendpos(	"IdleWalk",
-								lerp(animtree_get_blendpos("IdleWalk"), -1.0, delta * ANIM_BLEND_SPEED)) 
+		## -1 idle, 1 walk
+		#animtree_set_blendpos(	"IdleWalk",
+								#lerp(animtree_get_blendpos("IdleWalk"), -1.0, delta * ANIM_BLEND_SPEED)) 
 		
 		robot.velocity.x = move_toward(robot.velocity.x, 0, SPEED)
 		robot.velocity.z = move_toward(robot.velocity.z, 0, SPEED)
