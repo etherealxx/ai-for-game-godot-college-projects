@@ -1,17 +1,10 @@
-#extends CharacterBody3D
-#
-#const SPEED = 5.0
-#
-#func _physics_process(delta: float) -> void:
-	#if not is_on_floor():
-		#velocity += get_gravity() * delta
-#
-	#move_and_slide()
-
 extends CharacterBody3D
 
+signal defeated
+
 @export var target_character : NodePath
-@export var nav_speed := 0.4
+@export var nav_speed := 3.0
+@export var chasing_target := true
 
 @onready var navagent : NavigationAgent3D = $NavigationAgent3D
 @onready var model: Node3D = $BoneMinionModel
@@ -20,18 +13,21 @@ var nav_accel := 10.0
 var target_character_position : Vector3
 var map_ready := false
 var hp := 3
-@export var chasing_target := false
 
 func _ready() -> void:
 	navagent.target_desired_distance = 0.5
-	if target_character:
-		target_character_position = get_node(target_character).get_global_position()
+	setup_target_character_pos()
 	NavigationServer3D.map_changed.connect(_on_map_ready)
 	call_deferred("actor_setup")
+	$AnimationTree.tree_root = $AnimationTree.tree_root.duplicate(true)
 	$AnimationTree.tree_root.start_offset = randf_range(0.0, 1.0)
 
 func _on_map_ready(_rid):
 	map_ready = true
+
+func setup_target_character_pos():
+	if target_character:
+		target_character_position = get_node(target_character).get_global_position()
 
 #func chase_target():
 	#chasing_target = true
@@ -51,6 +47,7 @@ func actor_setup():
 		print(str(target_character_position))
 
 func _physics_process(delta):
+	#print(target_character_position, map_ready, chasing_target)
 	if target_character_position and map_ready and chasing_target:
 		var direction := Vector3()
 		
@@ -84,6 +81,7 @@ func damaged():
 	$BoneMinionModel.toggle_flash()
 	if hp <= 0:
 		queue_free()
+		defeated.emit()
 
 func refresh_navigation():
 	chasing_target = false

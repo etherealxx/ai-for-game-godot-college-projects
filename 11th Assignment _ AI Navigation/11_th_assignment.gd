@@ -58,7 +58,6 @@ func _ready() -> void:
 	agent_small.set_nav_map(navmap_small)
 	agent_big.set_nav_map(navmap_big)
 
-
 func _on_gate_closed_toggle_toggled(toggled_on: bool) -> void:
 	var tween = create_tween()
 	if toggled_on:

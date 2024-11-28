@@ -3,8 +3,7 @@ class_name GunnerBase
 
 const ANIM_BLEND_SPEED := 7.0
 
-var blueball = load("res://13th Final Assignment/scenes/blue_ball.tscn")
-
+# these variables are node references from the state machine owner
 var robot : CharacterBody3D
 var model : Node3D
 var enemy_detector: Area3D
@@ -13,13 +12,18 @@ var camera_pivot : Node3D
 var shoot_direction : Node3D
 var bullets_groupnode : Node3D
 var sprint_progress_bar : ProgressBar
+
+# these variables from the state machine owner will be inherited to all child states 
+var blueball : Resource
 var MAX_SPRINT_METER : int
 
+# these variables will be inherited to all child states
 var SPEED := 3.0
 var input_dir := Vector2.ZERO
 var is_shooting := false
 var has_shooted := false
 
+# ticktimer handler
 const TICK_TIMER_EVERY := 0.1 # seconds
 var physics_tickrate : int = ProjectSettings.get_setting("physics/common/physics_ticks_per_second")
 var ticktimer_max_value := roundi(physics_tickrate * TICK_TIMER_EVERY)
@@ -37,6 +41,7 @@ func Enter() -> void:
 		bullets_groupnode = robot.bullets_groupnode
 		sprint_progress_bar = robot.sprint_progress_bar
 		MAX_SPRINT_METER = robot.MAX_SPRINT_METER
+		blueball = robot.blueball
 		#sprint_meter = robot.sprint_meter
 		
 		if !enemy_detector.body_entered.is_connected(_on_enemy_detected):
@@ -80,7 +85,7 @@ func Physics_Update(delta: float) -> void:
 		#print(shootanim_pos)
 		
 		if is_shooting and !has_shooted and \
-		(abs(shootanim_pos - 0.2) <= 0.02):
+		(abs(shootanim_pos - 0.2) <= 0.01):
 			has_shooted = true
 			#print("shoot!")
 			var new_bullet : Area3D = blueball.instantiate()
@@ -88,7 +93,9 @@ func Physics_Update(delta: float) -> void:
 			new_bullet.global_position = shoot_direction.global_position
 			new_bullet.rotation = model.rotation + shoot_direction.rotation
 		
-		if abs(shootanim_pos - 0.0) <= 0.02:
+		#@TODO player still sometimes shoots nothing.
+		# but maybe problem lies on the enemy detection
+		if abs(shootanim_pos - 0.0) <= 0.01 or shootanim_pos < 0.1:
 			has_shooted = false
 
 func _on_enemy_detected(body : Node3D):

@@ -18,6 +18,7 @@ const MAX_SPRINT_METER := 100
 var current_state : GunnerState
 var states : Dictionary = {}
 
+var blueball = load("res://13th Final Assignment/scenes/blue_ball.tscn")
 var sprint_meter := MAX_SPRINT_METER
 
 func _ready() -> void:
