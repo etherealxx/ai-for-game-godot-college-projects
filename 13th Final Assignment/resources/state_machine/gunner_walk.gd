@@ -23,11 +23,19 @@ func Physics_Update(delta: float) -> void:
 								#lerp(animtree_get_blendpos("IdleWalk"), 1.0, delta * ANIM_BLEND_SPEED)) 
 		
 		if Input.is_action_pressed("speed_modifier"):
-			SPEED = 6.0
-			animtree_set_scale("WalkScale", 2.0)
+			if robot.sprint_meter > 0:
+				SPEED = 6.0
+				animtree_set_scale("WalkScale", 2.0)
+				if tick_timer_triggered() and robot.sprint_meter > 0:
+					robot.sprint_meter -= 4	
 		else:
 			SPEED = 3.0
 			animtree_set_scale("WalkScale", 1.0)
+			if tick_timer_triggered() and robot.sprint_meter > 0:
+				robot.sprint_meter += 1
+		
+		if robot.sprint_meter < 0: robot.sprint_meter = 0
+		sprint_progress_bar.value = robot.sprint_meter
 		
 		animtree_set_blendamount(	"WalkBlend",
 						lerp(animtree_get_blendamount("WalkBlend"), 1.0, delta * ANIM_BLEND_SPEED))

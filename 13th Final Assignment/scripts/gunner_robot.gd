@@ -2,6 +2,8 @@ extends CharacterBody3D
 
 #signal shoot(position : Vector3, rotation : Vector3)
 
+const MAX_SPRINT_METER := 100
+
 @onready var animtree: AnimationTree = $AnimationTree
 @onready var enemy_detector: Area3D = $EnemyDetector
 @onready var model: Node3D = $gunner_robot_model
@@ -11,9 +13,12 @@ extends CharacterBody3D
 @export var camera_pivot : Node3D
 @export var shoot_direction: Node3D
 @export var bullets_groupnode: Node3D
+@export var sprint_progress_bar: ProgressBar
 
 var current_state : GunnerState
 var states : Dictionary = {}
+
+var sprint_meter := MAX_SPRINT_METER
 
 func _ready() -> void:
 	for onestate in possible_state:

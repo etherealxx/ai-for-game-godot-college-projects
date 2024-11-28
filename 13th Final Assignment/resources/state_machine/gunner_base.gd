@@ -12,11 +12,18 @@ var animtree : AnimationTree
 var camera_pivot : Node3D
 var shoot_direction : Node3D
 var bullets_groupnode : Node3D
+var sprint_progress_bar : ProgressBar
+var MAX_SPRINT_METER : int
 
-var SPEED = 3.0
+var SPEED := 3.0
 var input_dir := Vector2.ZERO
 var is_shooting := false
 var has_shooted := false
+
+const TICK_TIMER_EVERY := 0.1 # seconds
+var physics_tickrate : int = ProjectSettings.get_setting("physics/common/physics_ticks_per_second")
+var ticktimer_max_value := roundi(physics_tickrate * TICK_TIMER_EVERY)
+var ticktimer := ticktimer_max_value
 
 func Enter() -> void:
 	#super.Enter()
@@ -28,6 +35,9 @@ func Enter() -> void:
 		camera_pivot = robot.camera_pivot
 		shoot_direction = robot.shoot_direction
 		bullets_groupnode = robot.bullets_groupnode
+		sprint_progress_bar = robot.sprint_progress_bar
+		MAX_SPRINT_METER = robot.MAX_SPRINT_METER
+		#sprint_meter = robot.sprint_meter
 		
 		if !enemy_detector.body_entered.is_connected(_on_enemy_detected):
 			enemy_detector.body_entered.connect(_on_enemy_detected)
@@ -88,6 +98,13 @@ func _on_enemy_detected(body : Node3D):
 func _on_bullet_outofrange(area : Area3D):
 	if area.is_in_group("bullet"):
 		area.spawn_death_particle()
+
+func tick_timer_triggered() -> bool:
+	ticktimer -= 1
+	if ticktimer <= 0:
+		ticktimer = ticktimer_max_value
+		return true
+	return false
 
 func animtree_set_condition(name : StringName, state : bool):
 	animtree["parameters/conditions/%s" % name] = state
