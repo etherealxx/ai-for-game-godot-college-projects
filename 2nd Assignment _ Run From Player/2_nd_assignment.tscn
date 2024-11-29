@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://dgr6e2hsbumgl" path="res://otherassets/GDQuest 3D WorldEnvi/GDQuest 3D WorldEnvi.tscn" id="1_hf4xs"]
 [ext_resource type="PackedScene" uid="uid://cmvvu6ki0eh20" path="res://scenes/scene_title.tscn" id="2_f8dqm"]
 [ext_resource type="PackedScene" uid="uid://cm0ult4wy7j6m" path="res://2nd Assignment _ Run From Player/scenes/ai_nav_agent_chaser.tscn" id="2_fa355"]
+[ext_resource type="Material" uid="uid://7q6euincfpsm" path="res://shared/basic_floor_mat.tres" id="2_gbi3g"]
 [ext_resource type="PackedScene" uid="uid://c5egukp68yeuu" path="res://2nd Assignment _ Run From Player/scenes/ai_nav_agent_runner.tscn" id="4_i6pxb"]
 
 [sub_resource type="Shader" id="Shader_efsoh"]
@@ -118,12 +119,9 @@ cell_size = 0.1
 cell_height = 0.1
 agent_height = 0.3
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_53daj"]
-albedo_color = Color(0.2484, 0.2484, 0.2484, 1)
-
 [sub_resource type="PlaneMesh" id="PlaneMesh_p7ihe"]
 lightmap_size_hint = Vector2i(12, 12)
-material = SubResource("StandardMaterial3D_53daj")
+material = ExtResource("2_gbi3g")
 size = Vector2(7, 7)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_3mylv"]

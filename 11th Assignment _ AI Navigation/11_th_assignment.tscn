@@ -4,13 +4,11 @@
 [ext_resource type="Script" path="res://11th Assignment _ AI Navigation/11_th_assignment.gd" id="1_scxqn"]
 [ext_resource type="PackedScene" uid="uid://dgr6e2hsbumgl" path="res://otherassets/GDQuest 3D WorldEnvi/GDQuest 3D WorldEnvi.tscn" id="2_ysw6n"]
 [ext_resource type="ButtonGroup" uid="uid://1xrvevia6kh2" path="res://12th Assignment _ Astar Pathfinding/resources/checkbox_buttongroup2.tres" id="3_empow"]
+[ext_resource type="Material" uid="uid://7q6euincfpsm" path="res://shared/basic_floor_mat.tres" id="4_s08rm"]
 [ext_resource type="Script" path="res://11th Assignment _ AI Navigation/scripts/ai_nav_agent_bigsmall.gd" id="4_sv5ou"]
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_nndte"]
-albedo_color = Color(0.2484, 0.2484, 0.2484, 1)
-
 [sub_resource type="BoxMesh" id="BoxMesh_jva4l"]
-material = SubResource("StandardMaterial3D_nndte")
+material = ExtResource("4_s08rm")
 size = Vector3(8.76, 0.2, 3.875)
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ui1qv"]

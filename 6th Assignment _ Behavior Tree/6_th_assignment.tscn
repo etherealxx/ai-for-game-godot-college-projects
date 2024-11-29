@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dgr6e2hsbumgl" path="res://otherassets/GDQuest 3D WorldEnvi/GDQuest 3D WorldEnvi.tscn" id="1_r3drm"]
 [ext_resource type="PackedScene" uid="uid://cmvvu6ki0eh20" path="res://scenes/scene_title.tscn" id="2_rmanh"]
-[ext_resource type="Material" uid="uid://datp4cu25c2k5" path="res://6th Assignment _ Behavior Tree/resources/floor_mat.tres" id="2_swm77"]
+[ext_resource type="Material" uid="uid://datp4cu25c2k5" path="res://6th Assignment _ Behavior Tree/resources/stone_floor_mat.tres" id="2_swm77"]
 [ext_resource type="PackedScene" uid="uid://bhobdiaqtx0u2" path="res://6th Assignment _ Behavior Tree/scenes/knight_character.tscn" id="3_qm4bc"]
 [ext_resource type="PackedScene" uid="uid://ddqlfc11n2t0p" path="res://6th Assignment _ Behavior Tree/scenes/skeleton_character.tscn" id="4_2xgcq"]
 [ext_resource type="Script" path="res://addons/beehave/nodes/beehave_tree.gd" id="4_xtqqm"]
@@ -48,7 +48,7 @@ visible = false
 
 [node name="BeehaveTree" type="Node" parent="Knight" node_paths=PackedStringArray("blackboard", "actor")]
 script = ExtResource("4_xtqqm")
-blackboard = NodePath("@Node@69627")
+blackboard = NodePath("@Node@121761")
 actor = NodePath("..")
 
 [node name="SelectorComposite" type="Node" parent="Knight/BeehaveTree"]

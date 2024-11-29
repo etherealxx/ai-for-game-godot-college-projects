@@ -2,6 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dgr6e2hsbumgl" path="res://otherassets/GDQuest 3D WorldEnvi/GDQuest 3D WorldEnvi.tscn" id="1_ynl15"]
 [ext_resource type="PackedScene" uid="uid://lvtr0fo0xfmt" path="res://1st Assignment _ Simple AI/scenes/ai_agent.tscn" id="2_5hf6w"]
+[ext_resource type="Material" uid="uid://7q6euincfpsm" path="res://shared/basic_floor_mat.tres" id="2_wftok"]
 [ext_resource type="PackedScene" uid="uid://cmvvu6ki0eh20" path="res://scenes/scene_title.tscn" id="3_x46fu"]
 
 [sub_resource type="Shader" id="Shader_efsoh"]
@@ -110,12 +111,9 @@ volumetric_fog_enabled = true
 volumetric_fog_density = 0.005
 volumetric_fog_emission = Color(1, 1, 1, 1)
 
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_53daj"]
-albedo_color = Color(0.2484, 0.2484, 0.2484, 1)
-
 [sub_resource type="PlaneMesh" id="PlaneMesh_rtfvv"]
 lightmap_size_hint = Vector2i(12, 12)
-material = SubResource("StandardMaterial3D_53daj")
+material = ExtResource("2_wftok")
 
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_p007s"]
 data = PackedVector3Array(1, 0, 1, -1, 0, 1, 1, 0, -1, -1, 0, 1, -1, 0, -1, 1, 0, -1)

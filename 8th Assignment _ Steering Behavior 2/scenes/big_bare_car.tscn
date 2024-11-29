@@ -1,0 +1,100 @@
+[gd_scene load_steps=4 format=4 uid="uid://di4h25t4xxltl"]
+
+[ext_resource type="Script" path="res://8th Assignment _ Steering Behavior 2/scripts/big_bare_car.gd" id="1_3btvf"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_a1mor"]
+_surfaces = [{
+"aabb": AABB(-3.21318, -5.44779, -2.41, 6.15395, 1.6294, 2.41),
+"attribute_data": PackedByteArray("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"),
+"format": 34359738391,
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 204,
+"vertex_data": PackedByteArray("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gTU8QNbOpMAAAAAAgTU8QNbOpMBxPRrAsNgLQP0YqsBxPRrAsNgLQP0YqsBxPRrAsNgLQP0YqsAAAAAAgTU8QNbOpMAAAAAAsNgLQP0YqsBxPRrAgTU8QNbOpMBxPRrArmswQMyLiMBxPRrAIDgIQBtliMBxPRrA1sSBP3tgdMBxPRrAM9/cvobLdsBxPRrAIYdLwDb/lcBxPRrAyaRNwFBUrsBxPRrAW5UdwHtFrcBxPRrASJy7v6wim8BxPRrAOMa2vzN1q8BxPRrA5EyTP4NOq8BxPRrAvuoHQBV5mcBxPRrAsNgLQP0YqsBxPRrArmswQMyLiMBxPRrAIDgIQBtliMBxPRrAM9/cvobLdsBxPRrA5Iqyv8SCisBxPRrAIYdLwDb/lcBxPRrAW5UdwHtFrcBxPRrA1V8cwA5wm8BxPRrAMM/wv3ttk8BxPRrASJy7v6wim8BxPRrA5EyTP4NOq8BxPRrAtsbSP7jSksBxPRrAvuoHQBV5mcBxPRrArmswQMyLiMBxPRrArmswQMyLiMBxPRrAIDgIQBtliMBxPRrA5Iqyv8SCisBxPRrA5Iqyv8SCisBxPRrAIYdLwDb/lcBxPRrA1V8cwA5wm8BxPRrAMM/wv3ttk8BxPRrA5EyTP4NOq8BxPRrAcu2WP11Jm8BxPRrAtsbSP7jSksBxPRrArmswQMyLiMBxPRrA5Iqyv8SCisBxPRrA5Iqyv8SCisBxPRrA1V8cwA5wm8BxPRrAMM/wv3ttk8BxPRrAMM/wv3ttk8BxPRrAcu2WP11Jm8BxPRrAtsbSP7jSksBxPRrAtsbSP7jSksBxPRrA5Iqyv8SCisBxPRrAMM/wv3ttk8BxPRrA/3//f////7//f/9/////v/9//3////+//3//f////7//f/9/////v/9//3/+//+//3//f////7//f/9//v//v/9//3////+//3//f////7//f/9/////v/9//3////+//3//f////7//f/9/////v/9//3////+//3//f////7//f/9/////v/9//3/+//+//3//f////7//f/9/////v/9//3////+//3//f////7//f/9/////v/9//3/+//+//3//f////7//f/9/////v/9//3////+//3//f////7//f/9//v//v/9//3////+//3//f////7//f/9/////v/9//3////+//3//f////7//f/9/////v/9//3/+//+//3//f////7//f/9/////v/9//3////+//3//f/7//7//f/9/////v/9//3////+//3//f////7//f/9/////v/9//3/+//+//3//f/7//7//f/9/////v/9//3////+/hw14cv////+HDXhy/////4cNeHL/////hw14cv////+HDXhy/////4cNeHL/////KFnXJv////8oWdcm/////yhZ1yb/////KFnXJv////8oWdcm/////yhZ1yb/////Pq4+Lv////8+rj4u/////z6uPi7/////Pq4+Lv////8+rj4u/////z6uPi7/////I/kkef////8j+SR5/////yP5JHn/////I/kkef////8j+SR5/////yP5JHn/////O4A7AP////87gDsA/////zuAOwD/////O4A7AP////87gDsA/////zuAOwD/////0wgrd//////TCCt3/////9MIK3f/////0wgrd//////TCCt3/////9MIK3f/////CFH2Lv////8IUfYu/////whR9i7/////CFH2Lv////8IUfYu/////whR9i7/////cKdwJ/////9wp3An/////3CncCf/////cKdwJ/////9wp3An/////3CncCf/////zPvNe//////M+817/////8z7zXv/////zPvNe//////M+817/////8z7zXv/////ZYVlBf////9lhWUF/////2WFZQX/////ZYVlBf////9lhWUF/////2WFZQX/////VQVUhf////9VBVSF/////1UFVIX/////VQVUhf////9VBVSF/////1UFVIX/////kmqR6v////+SapHq/////5Jqker/////kmqR6v////+SapHq/////5Jqker/////5FXk1f/////kVeTV/////+RV5NX/////5FXk1f/////kVeTV/////+RV5NX/////vHy8/P////+8fLz8/////7x8vPz/////vHy8/P////+8fLz8/////7x8vPz/////daSJ2/////91pInb/////3Wkidv/////daSJ2/////91pInb/////3Wkidv/////9IAK///////0gAr///////SACv//////9IAK///////0gAr///////SACv//////6OkWlv/////o6RaW/////+jpFpb/////6OkWlv/////o6RaW/////+jpFpb/////+Jb5Fv/////4lvkW//////iW+Rb/////+Jb5Fv/////4lvkW//////iW+Rb//////////wAA/7//////AAD/v/////8AAP+//////wAA/7//////AAD/v/////8AAP+//////wAA/7//////AAD/v/////8AAP+//////wAA/7//////AAD/v/////8AAP+//////wAA/7//////AAD/v/////8AAP+//////wAA/7//////AAD/v/////8AAP+//////wAA/7//////AAD/v/////8AAP+//////wAA/7//////AAD/v/////8AAP+//////wAA/7//////AAD/v/////8AAP+//////wAA/7//////AAD/v/////8AAP+//////wAA/7//////AAD/v/////8AAP+//////wAA/7//////AAD/v/////8AAP+//////wAA/7//////AAD/v/////8AAP+//////wAA/7//////AAD/v/////8AAP+//////wAA/7//////AAD/v/////8AAP+//////wAA/7//////AAD/v/////8AAP+/")
+}]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_15fce"]
+top_radius = 0.425
+bottom_radius = 0.425
+height = 0.318
+
+[node name="BigBareCar" type="VehicleBody3D"]
+gravity_scale = 4.0
+script = ExtResource("1_3btvf")
+
+[node name="CarBody" type="MeshInstance3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.205, 4.813, 0)
+mesh = SubResource("ArrayMesh_a1mor")
+
+[node name="FrontLeft" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.38, 1.95)
+use_as_steering = true
+wheel_roll_influence = 0.01
+wheel_rest_length = 0.2
+wheel_friction_slip = 1.4
+suspension_travel = 0.15
+suspension_stiffness = 120.0
+
+[node name="CarTire2" type="MeshInstance3D" parent="FrontLeft"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0.03, 0)
+mesh = SubResource("CylinderMesh_15fce")
+skeleton = NodePath("../..")
+
+[node name="FrontRight" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.38, 1.95)
+use_as_steering = true
+wheel_roll_influence = 0.01
+wheel_rest_length = 0.2
+wheel_friction_slip = 1.4
+suspension_travel = 0.15
+suspension_stiffness = 120.0
+
+[node name="CarTire" type="MeshInstance3D" parent="FrontRight"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0.03, 0)
+mesh = SubResource("CylinderMesh_15fce")
+skeleton = NodePath("../..")
+
+[node name="BackRight" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, -0.38, -1.66)
+use_as_traction = true
+wheel_roll_influence = 0.01
+wheel_rest_length = 0.2
+wheel_friction_slip = 1.1
+suspension_travel = 0.15
+suspension_stiffness = 80.0
+
+[node name="CarTire4" type="MeshInstance3D" parent="BackRight"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0.03, 0.015)
+mesh = SubResource("CylinderMesh_15fce")
+skeleton = NodePath("../..")
+
+[node name="BackLeft" type="VehicleWheel3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1, -0.38, -1.66)
+use_as_traction = true
+wheel_roll_influence = 0.01
+wheel_rest_length = 0.2
+wheel_friction_slip = 1.1
+suspension_travel = 0.15
+suspension_stiffness = 80.0
+
+[node name="CarTire3" type="MeshInstance3D" parent="BackLeft"]
+transform = Transform3D(-4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 0, 0.03, 0.015)
+mesh = SubResource("CylinderMesh_15fce")
+skeleton = NodePath("../..")
+
+[node name="CSGPolygon3D2" type="CSGPolygon3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.205, 4.813, 0)
+visible = false
+polygon = PackedVector2Array(2.94077, -5.15025, 2.75657, -4.26707, 2.12843, -4.26234, 1.01382, -3.81839, -0.43139, -3.85617, -1.39486, -4.32846, -3.18012, -4.6874, -3.21318, -5.44779, -2.46224, -5.41473, -2.44335, -4.85743, -1.88132, -4.60711, -1.46571, -4.84798, -1.42792, -5.35806, 1.15078, -5.35333, 1.17912, -4.85271, 1.64669, -4.58822, 2.1237, -4.79603, 2.1851, -5.31555)
+depth = 2.41
+
+[node name="CSGPolygon3D" type="CSGPolygon3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 1.21113, 0, 0)
+visible = false
+polygon = PackedVector2Array(-3.17613, 0.120222, -1.33964, 0.511827, -0.482163, 0.957445, 1.04374, 0.997956, 2.11053, 0.545586, 2.76545, 0.545586, 2.92749, -0.291637, 2.20505, -0.480688, 2.13753, 0.0392008, 1.6244, 0.241755, 1.16527, -0.00806182, 1.15177, -0.507695, -1.45442, -0.494191, -1.47468, -0.0215653, -1.88654, 0.235003, -2.4807, -0.0553244, -2.46044, -0.575213, -3.21664, -0.60222)
+depth = 2.47
+
+[node name="CollisionPolygon3D" type="CollisionPolygon3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0)
+depth = 2.47
+polygon = PackedVector2Array(2.94546, -0.29475, 2.76618, 0.558594, 2.14948, 0.544252, 0.980614, 1.01036, -0.460748, 0.960168, -1.40609, 0.498889, -3.17931, 0.130864, -3.2044, -0.630278, -2.45998, -0.605186, -2.44326, -0.044784, -1.88285, 0.222871, -1.45628, -0.044784, -1.42282, -0.546636, 1.11989, -0.504815, 1.18681, 0.0137655, 1.67193, 0.28142, 2.13196, 0.0304939, 2.19888, -0.462994)
