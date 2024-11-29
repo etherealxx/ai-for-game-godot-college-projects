@@ -1,9 +1,8 @@
-[gd_scene load_steps=13 format=3 uid="uid://jwtvli87amri"]
+[gd_scene load_steps=8 format=3 uid="uid://jwtvli87amri"]
 
 [ext_resource type="PackedScene" uid="uid://cmvvu6ki0eh20" path="res://scenes/scene_title.tscn" id="1_tb32r"]
 [ext_resource type="Material" uid="uid://7q6euincfpsm" path="res://shared/basic_floor_mat.tres" id="2_5v716"]
 [ext_resource type="PackedScene" uid="uid://dgr6e2hsbumgl" path="res://otherassets/GDQuest 3D WorldEnvi/GDQuest 3D WorldEnvi.tscn" id="2_7885x"]
-[ext_resource type="Script" path="res://8th Assignment _ Steering Behavior 2/scripts/car.gd" id="3_74j2g"]
 [ext_resource type="PackedScene" uid="uid://di4h25t4xxltl" path="res://8th Assignment _ Steering Behavior 2/scenes/big_bare_car.tscn" id="5_hux16"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_quo2d"]
@@ -13,19 +12,6 @@ size = Vector3(33.685, 0.2, 34.31)
 [sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_snc7o"]
 data = PackedVector3Array(-16.8425, 0.1, 17.155, 16.8425, 0.1, 17.155, -16.8425, -0.1, 17.155, 16.8425, 0.1, 17.155, 16.8425, -0.1, 17.155, -16.8425, -0.1, 17.155, 16.8425, 0.1, -17.155, -16.8425, 0.1, -17.155, 16.8425, -0.1, -17.155, -16.8425, 0.1, -17.155, -16.8425, -0.1, -17.155, 16.8425, -0.1, -17.155, 16.8425, 0.1, 17.155, 16.8425, 0.1, -17.155, 16.8425, -0.1, 17.155, 16.8425, 0.1, -17.155, 16.8425, -0.1, -17.155, 16.8425, -0.1, 17.155, -16.8425, 0.1, -17.155, -16.8425, 0.1, 17.155, -16.8425, -0.1, -17.155, -16.8425, 0.1, 17.155, -16.8425, -0.1, 17.155, -16.8425, -0.1, -17.155, 16.8425, 0.1, 17.155, -16.8425, 0.1, 17.155, 16.8425, 0.1, -17.155, -16.8425, 0.1, 17.155, -16.8425, 0.1, -17.155, 16.8425, 0.1, -17.155, -16.8425, -0.1, 17.155, 16.8425, -0.1, 17.155, -16.8425, -0.1, -17.155, 16.8425, -0.1, 17.155, 16.8425, -0.1, -17.155, -16.8425, -0.1, -17.155)
 
-[sub_resource type="BoxMesh" id="BoxMesh_mgst6"]
-size = Vector3(1, 0.195, 0.45)
-
-[sub_resource type="BoxShape3D" id="BoxShape3D_m1vxc"]
-size = Vector3(1, 0.188538, 0.463135)
-
-[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_efu5r"]
-albedo_color = Color(0.409603, 0.409603, 0.409603, 1)
-
-[sub_resource type="CylinderMesh" id="CylinderMesh_7qym6"]
-material = SubResource("StandardMaterial3D_efu5r")
-height = 0.295
-
 [sub_resource type="Curve3D" id="Curve3D_4p0uk"]
 _data = {
 "points": PackedVector3Array(0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 5.56, 0, 0, 0, 0, 0, 0, 0, 0, 7.865, 0, -2.085, 0, 0, 0, 0, 0, 0, 5.165, 0, -3.29, 0, 0, 0, 0, 0, 0, 0, 0, -3.5, 0, 0, 0, 0, 0, 0, 0, 0, 0),
@@ -34,6 +20,11 @@ _data = {
 point_count = 6
 
 [node name="8thAssignment" type="Node3D"]
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(-0.866023, -0.433016, 0.250001, 0, 0.499998, 0.866027, -0.500003, 0.749999, -0.43301, 0, 0, 0)
+shadow_enabled = true
+metadata/_edit_lock_ = true
 
 [node name="SceneTitle" parent="." instance=ExtResource("1_tb32r")]
 label_text = "Eighth (8th) Assignment : Steering Behavior 2"
@@ -52,10 +43,11 @@ shape = SubResource("ConcavePolygonShape3D_snc7o")
 [node name="WorldEnvironment" parent="." instance=ExtResource("2_7885x")]
 
 [node name="SpotLight3D" type="SpotLight3D" parent="."]
-transform = Transform3D(0.737065, 0.456275, -0.498546, -0.0532571, 0.774609, 0.630194, 0.67372, -0.437943, 0.595237, -3.3202, 3.63085, 1.70353)
+transform = Transform3D(0.737065, 0.456275, -0.498546, -0.0532571, 0.774609, 0.630194, 0.67372, -0.437943, 0.595237, -36.1509, 40.0431, 1.70353)
 light_color = Color(0.85311, 0.56549, 0.271943, 1)
 light_energy = 12.469
-spot_range = 15.4275
+shadow_enabled = true
+spot_range = 170.55
 spot_angle = 69.6191
 
 [node name="Camera3D" type="Camera3D" parent="."]
@@ -63,58 +55,8 @@ transform = Transform3D(1, 0, 0, 0, 0.590718, 0.806878, 0, -0.806878, 0.590718, 
 metadata/_edit_lock_ = true
 
 [node name="Camera3D2" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, -0.146, 8.69596, -1.69407)
+transform = Transform3D(1, 0, 0, 0, 0.437304, 0.899314, 0, -0.899314, 0.437304, -0.146, 30.2162, 8.46569)
 current = true
-
-[node name="Car" type="VehicleBody3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.064813, 0)
-mass = 2.0
-gravity_scale = 0.1
-script = ExtResource("3_74j2g")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Car"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.470634, 0)
-mesh = SubResource("BoxMesh_mgst6")
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="Car"]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.472838, 0)
-shape = SubResource("BoxShape3D_m1vxc")
-
-[node name="WheelFR" type="VehicleWheel3D" parent="Car"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.345608, 0.286712, 0.269126)
-use_as_steering = true
-wheel_radius = 0.22
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Car/WheelFR"]
-transform = Transform3D(-1.83296e-08, -0.419333, 0, 0.419333, -1.83296e-08, 0, 0, 0, 0.419333, -0.0435164, 0.0048238, 0)
-mesh = SubResource("CylinderMesh_7qym6")
-
-[node name="WheelFL" type="VehicleWheel3D" parent="Car"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0.343579, 0.283347, -0.360985)
-use_as_steering = true
-wheel_radius = 0.22
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Car/WheelFL"]
-transform = Transform3D(-1.83296e-08, -0.419333, 0, 0.419333, -1.83296e-08, 0, 0, 0, 0.419333, -0.0435164, 0.0048238, 0)
-mesh = SubResource("CylinderMesh_7qym6")
-
-[node name="WheelRR" type="VehicleWheel3D" parent="Car"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.385808, 0.286712, 0.269126)
-use_as_traction = true
-wheel_radius = 0.22
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Car/WheelRR"]
-transform = Transform3D(-1.83296e-08, -0.419333, 0, 0.419333, -1.83296e-08, 0, 0, 0, 0.419333, -0.0435164, 0.0048238, 0)
-mesh = SubResource("CylinderMesh_7qym6")
-
-[node name="WheelRL" type="VehicleWheel3D" parent="Car"]
-transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -0.385808, 0.286712, -0.365082)
-use_as_traction = true
-wheel_radius = 0.22
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="Car/WheelRL"]
-transform = Transform3D(-1.83296e-08, -0.419333, 0, 0.419333, -1.83296e-08, 0, 0, 0, 0.419333, -0.0435164, 0.0048238, 0)
-mesh = SubResource("CylinderMesh_7qym6")
 
 [node name="Path3D" type="Path3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.255, 0)
@@ -122,3 +64,23 @@ curve = SubResource("Curve3D_4p0uk")
 
 [node name="BigBareCar" parent="." instance=ExtResource("5_hux16")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.84454, 1.36923, -2.41627)
+
+[node name="CSGCylinder3D" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.0863991, 4.0252, 7.1773)
+height = 9.692
+
+[node name="CSGCylinder3D2" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 13.674, 4.26584, 4.91035)
+height = 9.692
+
+[node name="CSGCylinder3D3" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 26.1471, 4.26584, -11.2024)
+height = 9.692
+
+[node name="CSGCylinder3D4" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -17.3697, 4.26584, -21.8206)
+height = 9.692
+
+[node name="CSGCylinder3D5" type="CSGCylinder3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.19489, 4.26584, -4.9167)
+height = 9.692
