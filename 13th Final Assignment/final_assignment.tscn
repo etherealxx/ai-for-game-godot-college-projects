@@ -128,6 +128,12 @@ focus_mode = 0
 theme_override_font_sizes/font_size = 20
 text = "Toggle Fullscreen "
 
+[node name="DebugTrailBtn" type="CheckButton" parent="SceneTitle/Control/Panel/ToggleVBox"]
+layout_mode = 2
+focus_mode = 0
+theme_override_font_sizes/font_size = 20
+text = "Debug Trail"
+
 [node name="ResetSceneBtn" type="Button" parent="SceneTitle/Control/Panel/ToggleVBox"]
 layout_mode = 2
 focus_mode = 0
@@ -250,6 +256,7 @@ wait_time = 4.0
 one_shot = true
 
 [connection signal="toggled" from="SceneTitle/Control/Panel/ToggleVBox/FullscreenBtn" to="." method="_on_fullscreen_btn_toggled"]
+[connection signal="toggled" from="SceneTitle/Control/Panel/ToggleVBox/DebugTrailBtn" to="." method="_on_debug_trail_btn_toggled"]
 [connection signal="pressed" from="SceneTitle/Control/Panel/ToggleVBox/ResetSceneBtn" to="." method="_on_reset_scene_btn_pressed"]
 [connection signal="child_exiting_tree" from="Enemies" to="." method="_on_enemies_child_exiting_tree"]
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="_on_enemy_spawn_timer_timeout"]

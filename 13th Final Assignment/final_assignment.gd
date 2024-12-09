@@ -63,3 +63,8 @@ func _on_enemies_child_exiting_tree(_node: Node) -> void:
 		if enemy_count() < 3 \
 		and $EnemySpawnTimer.is_stopped():
 			$EnemySpawnTimer.start()
+
+func _on_debug_trail_btn_toggled(toggled_on: bool) -> void:
+	for enemy in %Enemies.get_children().filter(func(x : Node): return x.is_in_group("enemy")):
+		var navagent : NavigationAgent3D = enemy.get_node("NavigationAgent3D")
+		navagent.debug_enabled = toggled_on
